@@ -24,6 +24,11 @@ public class CTCanvas : MonoBehaviour {
 		CTService.loadRewardVideoWithSlotId (slot_id); 
 	}
 
+	void OnDestroy(){
+		//do not forget to call release, otherwise android platform will casue memory leak.
+		CTService.release ();
+	}
+
 	//set delegate
 	void setupDelegates(){
 		CTService.rewardVideoLoadSuccess += CTRewardVideoLoadSuccess;

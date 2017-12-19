@@ -9,6 +9,7 @@ namespace CTServiceSDK {
 	public class CTService : MonoBehaviour {
 		
 		private static string delegateName = "CTServiceDelegate";
+		public const string version = "1.01";
 
 	#if UNITY_ANDROID// && !UNITY_EDITOR
 		private static AndroidJavaClass ctClass = null;
@@ -153,6 +154,7 @@ namespace CTServiceSDK {
 				#if (UNITY_ANDROID) // && !UNITY_EDITOR
 					if(ctVideo != null){
 						return ctVideo.Call<bool>("isRewardedVideoAvailable");
+					}
 				#elif UNITY_IOS // && !UNITY_EDITOR
 					return CCheckRewardVideoIsReady();
 				#endif
@@ -162,6 +164,19 @@ namespace CTServiceSDK {
 				Debug.Log(e.StackTrace);
 			}
 			return false;
+		}
+
+		/**
+ 		release memory on andorid platform
+		 */
+		public static void release(){
+			#if UNITY_ANDROID
+			ctClass = null;
+			cmClass = null;
+			unityPlayerClass = null;
+			currentActivity = null;
+			ctVideo = null;
+			#endif
 		}
 			
 		/**
@@ -261,17 +276,6 @@ namespace CTServiceSDK {
 			if(rewardVideoClosed != null){
 				rewardVideoClosed();
 			}
-			releaseCTService ();
-		}
-
-		private void releaseCTService(){
-		#if UNITY_ANDROID
-			ctClass = null;
-			cmClass = null;
-			unityPlayerClass = null;
-			currentActivity = null;
-			ctVideo = null;
-		#endif
 		}
 	}
 }
