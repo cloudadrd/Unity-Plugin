@@ -254,6 +254,16 @@ typedef enum : NSUInteger {
 
 #pragma mark - RewardVideo Ad Interface
 //Get Reward Video Ads
+
+/**
+ Set Rewarded Video Custom Parameters
+
+  @param customParams         custom Params
+ 
+ */
+- (void)setCustomParameters:(NSString *)customParams;
+
+
 /**
  Get RewardVideo Ad
  First,you must should Call (loadRewardVideoWithSlotId:delegate:) method get RewardVideo Ad！Then On his return to the success of the proxy method invokes the （showRewardVideo） method
@@ -281,6 +291,7 @@ typedef enum : NSUInteger {
  @return YES:you can call show rewardvideo interface / NO:don't call show rewardvideo interface 
  */
 - (BOOL)checkRewardVideoIsReady;
+
 #pragma mark - U3D Delegate
 
 /**

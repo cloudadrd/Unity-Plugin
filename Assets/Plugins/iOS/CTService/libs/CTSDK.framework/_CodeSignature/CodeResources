@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/CTRewardVideoDelegate.h</key>
 		<data>
-		t1PA/ti1ziJ+Lk4MQNTwaE9qyno=
+		0WZdW/5HcRHOi1+MEoU2kxIWbZo=
 		</data>
 		<key>Headers/CTSDK.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/CTService.h</key>
 		<data>
-		l0C2W1WYtVzTyj2kCuvdaySoReM=
+		Cbfv9bKslOTZd/WTEFCwVYkCdwE=
 		</data>
 		<key>Headers/CTVideoDelegate.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		d6t4/VMlyuv7NZGX8zh6bzvDgmc=
+		iY1yKrlqzYqegJ82D5s+8dQYK+s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -95,11 +95,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			t1PA/ti1ziJ+Lk4MQNTwaE9qyno=
+			0WZdW/5HcRHOi1+MEoU2kxIWbZo=
 			</data>
 			<key>hash2</key>
 			<data>
-			zEhxVkRibijbd+uPjwCzEJ5+E7lqKsprkz5FarXKgdg=
+			Qkn9yTDuXXp9oEkYq5IdU7gru5BbbY6R96lH4lCoJ5U=
 			</data>
 		</dict>
 		<key>Headers/CTSDK.h</key>
@@ -117,11 +117,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			l0C2W1WYtVzTyj2kCuvdaySoReM=
+			Cbfv9bKslOTZd/WTEFCwVYkCdwE=
 			</data>
 			<key>hash2</key>
 			<data>
-			yaggzRdQREgz9i3G/aRDAE4m8zYSZYosI7czEVZrVDk=
+			NehkTEZCnbtMhT860C5LQXBxvAu0RNzzDSEuJB8JGiA=
 			</data>
 		</dict>
 		<key>Headers/CTVideoDelegate.h</key>

@@ -53,5 +53,5 @@
 /**
  *  CTRewardVideo Reward Interface
  **/
-- (void)CTRewardVideoAdRewardedName:(NSString *)rewardName rewardAmount:(NSString *)rewardAmount;
+- (void)CTRewardVideoAdRewardedName:(NSString *)rewardName rewardAmount:(NSString *)rewardAmount customParams:(NSString*) customParams;
 @end
