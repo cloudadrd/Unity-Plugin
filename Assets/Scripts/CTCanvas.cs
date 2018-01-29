@@ -18,15 +18,13 @@ public class CTCanvas : MonoBehaviour {
 	void Start () {
 		playBtn.onClick.AddListener (playBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
-		//set delegate
-		setupDelegates ();
 		//Notice: load rewardvideo ad when you init UI.
 		CTService.loadRewardVideoWithSlotId (slot_id); 
 	}
 
-	void OnDestroy(){
-		//do not forget to call release, otherwise android platform will casue memory leak.
-		CTService.release ();
+	//set delegate
+	void OnEnable() {
+		setupDelegates();
 	}
 
 	//set delegate
@@ -40,6 +38,23 @@ public class CTCanvas : MonoBehaviour {
 		CTService.rewardVideoJumpfailed += CTRewardVideoJumpfailed;
 		CTService.rewardVideoAdRewarded += CTRewardVideoAdRewarded;
 		CTService.rewardVideoClosed += CTRewardVideoClosed;
+	}
+
+	void OnDisable(){
+		CTService.rewardVideoLoadSuccess -= CTRewardVideoLoadSuccess;
+		CTService.rewardVideoLoadingFailed -= CTRewardVideoLoadingFailed;
+		CTService.rewardVideoDidStartPlaying -= CTRewardVideoDidStartPlaying;
+		CTService.rewardVideoDidFinishPlaying -= CTRewardVideoDidFinishPlaying;
+		CTService.rewardVideoDidClickRewardAd -= CTRewardVideoDidClickRewardAd;
+		CTService.rewardVideoWillLeaveApplication -= CTRewardVideoWillLeaveApplication;
+		CTService.rewardVideoJumpfailed -= CTRewardVideoJumpfailed;
+		CTService.rewardVideoAdRewarded -= CTRewardVideoAdRewarded;
+		CTService.rewardVideoClosed -= CTRewardVideoClosed;
+	}
+
+	void OnDestroy(){
+		//do not forget to call release, otherwise android platform will casue memory leak.
+		CTService.release ();
 	}
 
 	//Notice: You should call this api as soon as you can. For example, call it in Start function.(not in awake, beacause we must call CTService.loadRequestGetCTSDKConfigBySlot_id first in camera awake function)
@@ -80,8 +95,8 @@ public class CTCanvas : MonoBehaviour {
 	//video load success. 
 	//Do not show reward video in the function, for android sdk preloads ads, may call this function several times.
 	void CTRewardVideoLoadSuccess(){
-		setReady (true);
 		Debug.Log ("U3D delegate, CTRewardVideoLoadSuccess");
+		setReady (true);
 	}
 
 	//video load failure

@@ -5,7 +5,7 @@
 //  Created by 兰旭平 on 2017/3/10.
 //  Copyright © 2017年 Mirinda. All rights reserved.
 //
-
+#ifndef CT_NOREWARDEDVIDEO
 #import <Foundation/Foundation.h>
 
 @protocol CTRewardVideoDelegate <NSObject>
@@ -55,3 +55,4 @@
  **/
 - (void)CTRewardVideoAdRewardedName:(NSString *)rewardName rewardAmount:(NSString *)rewardAmount customParams:(NSString*) customParams;
 @end
+#endif

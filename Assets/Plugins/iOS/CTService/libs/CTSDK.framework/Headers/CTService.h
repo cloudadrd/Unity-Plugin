@@ -196,6 +196,10 @@ typedef enum : NSUInteger {
                            success:(void (^)(UIView *NaTemplateView))success
                            failure:(void (^)(NSError *error))failure;
 
+/**
+ Remove Banner,Interstitial,Natemplate Ads click waiting loading animation.
+ */
+- (void)removeAllTemplateWaitingLoadingAnimation;
 
 #pragma mark - AppWall Ad Interface
 /**
@@ -281,7 +285,7 @@ typedef enum : NSUInteger {
 /**
  show RewardVideo
 
- @param The view controller on which the interstitial will display
+ @param viewController The view controller on which the interstitial will display
  */
 - (void)showRewardVideoWithPresentingViewController:(UIViewController *)viewController;
 

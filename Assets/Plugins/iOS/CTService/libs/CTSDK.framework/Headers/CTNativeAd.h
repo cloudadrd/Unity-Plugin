@@ -8,10 +8,31 @@
 @protocol CTNativeAdDelegate;
 
 @interface CTNativeAd : UIView
-@property(nonatomic,strong)CTNativeAdModel* adNativeModel;
-@property(nonatomic, weak)id<CTNativeAdDelegate> delegate;
+/**
+ Ad source, you must set it ！
+ */
+@property (nonatomic, strong) CTNativeAdModel* adNativeModel;
+/**
+ Ad callback delegate
+ */
+@property (nonatomic, weak)   id<CTNativeAdDelegate> delegate;
+/**
+ if removeloading is yes, click ad will remove loading animation！
+ */
+@property (nonatomic, assign) BOOL removeLoading;
+/**
+ Init method
 
-//初始化方法
--(instancetype)init;
--(instancetype)initWithFrame:(CGRect)frame;
+ @return self
+ */
+- (instancetype)init;
+/**
+ Init method
+
+ @param frame Ad size
+
+ @return self
+ */
+- (instancetype)initWithFrame:(CGRect)frame;
+
 @end
