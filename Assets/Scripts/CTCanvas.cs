@@ -67,20 +67,20 @@ public class CTCanvas : MonoBehaviour {
 	void playBtnClick(){
 		//you can also use this api to check if rewearded video is ready.
 		if (CTService.checkRewardVideoIsReady ()) {
-			setReady (true);
+			setReady (true, null);
 			CTService.showRewardVideo (slot_id);
 		}
 		else
 			Debug.Log ("CT Rewarded Video is not ready");
 	}
 
-	void setReady(bool isReady){
+	void setReady(bool isReady, string msg){
 		if (isReady) {
 			statusText.color = Color.green; 
 			statusText.text = "isReadyToPlay: Yes";
 		} else {
 			statusText.color = Color.red; 
-			statusText.text = "isReadyToPlay: No";
+			statusText.text = msg;
 		}
 	}
 		
@@ -96,12 +96,12 @@ public class CTCanvas : MonoBehaviour {
 	//Do not show reward video in the function, for android sdk preloads ads, may call this function several times.
 	void CTRewardVideoLoadSuccess(){
 		Debug.Log ("U3D delegate, CTRewardVideoLoadSuccess");
-		setReady (true);
+		setReady (true, null);
 	}
 
 	//video load failure
 	void CTRewardVideoLoadingFailed(string error){
-		setReady (false);
+		setReady (false, error);
 		Debug.Log ("U3D delegate, CTRewardVideoLoadingFailed. " + error);
 	}
 		
@@ -138,6 +138,6 @@ public class CTCanvas : MonoBehaviour {
 	//close video ad
 	void CTRewardVideoClosed(){
 		Debug.Log ("U3D delegate, CTRewardVideoClosed");
-		setReady (false);
+		setReady (false, "video play end");
 	}
 }

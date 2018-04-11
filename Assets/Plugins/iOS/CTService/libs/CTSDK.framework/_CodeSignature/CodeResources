@@ -26,19 +26,15 @@
 		</data>
 		<key>Headers/CTSDK.h</key>
 		<data>
-		g6rSg2o7ZjFWcOepcuEX93lXWjs=
+		Mg53HRrZAIGDqn+/Mn43kvT0JYw=
 		</data>
 		<key>Headers/CTService.h</key>
 		<data>
-		z9nUZ0NkiXlQEfoWb29j2EunMcw=
-		</data>
-		<key>Headers/CTVideoDelegate.h</key>
-		<data>
-		3j2zHm0bLpv0FN14W8Z5QLrigHc=
+		Se5ggMMOl4Ht5WrXR3VkeUz7WrA=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		p09fD6qbYRsIw+c0ue5FM74anR0=
+		PQzOYA4FJ+hu/xf/RJIN+cqXrZo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -106,33 +102,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g6rSg2o7ZjFWcOepcuEX93lXWjs=
+			Mg53HRrZAIGDqn+/Mn43kvT0JYw=
 			</data>
 			<key>hash2</key>
 			<data>
-			0kih9SQ/G4YV57jJ2952QYgF34rpFbytTVdEKLicBHg=
+			GtJBVnNfaKoszoQwbfCEawoYpIRe3DVXkzBWVeGq1rA=
 			</data>
 		</dict>
 		<key>Headers/CTService.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z9nUZ0NkiXlQEfoWb29j2EunMcw=
+			Se5ggMMOl4Ht5WrXR3VkeUz7WrA=
 			</data>
 			<key>hash2</key>
 			<data>
-			0GC4Seh00SDfb3DdmeHLCkbBzWMGPt1h4fD0ox458mY=
-			</data>
-		</dict>
-		<key>Headers/CTVideoDelegate.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3j2zHm0bLpv0FN14W8Z5QLrigHc=
-			</data>
-			<key>hash2</key>
-			<data>
-			3VIZmgtKQlNOI3mslU/22EB5rGlNDDtZaAHVLba7wbg=
+			RKY2wF/VimUGo1VnAk+fOrqlNUOL8QTuloR/LW+zJOo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

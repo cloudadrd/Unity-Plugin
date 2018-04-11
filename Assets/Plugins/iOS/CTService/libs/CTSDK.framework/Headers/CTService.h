@@ -228,34 +228,6 @@ typedef enum : NSUInteger {
 - (UIViewController *)showAppWallViewController;
 
 
-#pragma mark - Video Ad Interface
-/**
- Get Video Ad View
- First,you must should Call (getVideoADswithSlotId:delegate:frame:isTest:success:failure:) method,Then get successs,call videoViewPlay:isMute: method show Video Ad！
-
- @param slot_id         Cloud Tech AD ID
- @param delegate        Set Delegate of Ads event (<CTVideoDelegate>)
- @param frame           Set frame for video Ad
- @param isTest          Use test advertisement or not
- @param success         The request is successful Block
- @param failure         The request failed Block, retuen error
- */
-- (void)getVideoADswithSlotId:(NSString *)slot_id
-                    delegate:(id)delegate
-                       frame:(CGRect)frame
-                      isTest:(BOOL)isTest
-                     success:(void (^)(UIView *videoView))success
-                     failure:(void (^)(NSError *error))failure;
-
-/**
- Video play Method
-
- @param videoView       use videoView play
- @param mute            voice
- */
-- (void)videoViewPlay:(UIView *)videoView  isMute:(BOOL)mute;
-
-
 #pragma mark - RewardVideo Ad Interface
 //Get Reward Video Ads
 
