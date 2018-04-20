@@ -9,7 +9,7 @@ namespace CTServiceSDK {
 	public class CTService : MonoBehaviour {
 		
 		private static string delegateName = "CTServiceDelegate";
-		public const string version = "1.06";
+		public const string version = "1.10";
 
 	#if UNITY_ANDROID// && !UNITY_EDITOR
 		private static AndroidJavaClass ctClass = null;
@@ -20,6 +20,8 @@ namespace CTServiceSDK {
 		private static AndroidJavaClass unityPlayerClass = null;
 		private static string UNITY_CLASS = "com.unity3d.player.UnityPlayer";
 		private static AndroidJavaObject currentActivity = null;
+		private static AndroidJavaObject adsClass = null;
+		private static string CM_ADS_CLASS = "com.cloudtech.ads.unity.CTUnityService";
 	#elif UNITY_IOS // && !UNITY_EDITOR
 		[DllImport ("__Internal")]private static extern void CSetDelegateObjName(string delegateName);
 		[DllImport ("__Internal")]private static extern void CLoadRequestGetCTSDKConfigBySlot_id(string slot_id);
@@ -37,7 +39,7 @@ namespace CTServiceSDK {
 		{
 			try
 			{
-				#if (UNITY_ANDROID) // && !UNITY_EDITOR
+				#if (UNITY_ANDROID)
 					if(unityPlayerClass == null)
 						unityPlayerClass = new AndroidJavaClass(UNITY_CLASS);
 					
@@ -49,7 +51,7 @@ namespace CTServiceSDK {
 						ctClass = new AndroidJavaClass(SDK_CLASS);
 					ctClass.CallStatic("init", currentActivity, slot_id); 
 					
-					//set delegate name
+					//init video
 					if(cmClass == null)
 						cmClass = new AndroidJavaClass(CM_CLASS);
 					
@@ -65,7 +67,12 @@ namespace CTServiceSDK {
 					else
 						Debug.Log("CTError: setUnityDelegateObjName error ");
 
-				#elif UNITY_IOS // && !UNITY_EDITOR
+					//init interstitial
+					if(adsClass == null)
+						adsClass = new AndroidJavaObject(CM_ADS_CLASS);
+
+					adsClass.Call("setUnityDelegateObjName", delegateName); 
+				#elif UNITY_IOS
 					CSetDelegateObjName(delegateName);
 					CLoadRequestGetCTSDKConfigBySlot_id(slot_id);
 				#endif
@@ -88,8 +95,8 @@ namespace CTServiceSDK {
 
 		/**
  		Get RewardVideo Ad
- 		First,you must should Call (loadRewardVideoWithSlotId) method get RewardVideo Ad！
- 		Then On his return to the success of the proxy method invokes the （showRewardVideo） method
+ 		First,you should Call (loadRewardVideoWithSlotId) method get RewardVideo Ad！
+ 		Then On success delegate method invokes (showRewardVideo） method
 		@param slot_id         Cloud Tech AD ID
  		*/
 		public static void loadRewardVideoWithSlotId(string slot_id)
@@ -97,14 +104,14 @@ namespace CTServiceSDK {
 			try
 			{
 				createDelegateObj();
-				#if (UNITY_ANDROID) // && !UNITY_EDITOR
+				#if (UNITY_ANDROID)
 				if(ctVideo != null && unityPlayerClass!= null){
 					currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
 					ctVideo.Call("preloadRewardedVideo", currentActivity, slot_id);
 				}else{
 					Debug.Log("CTError: loadRewardVideoWithSlotId error ");
 				}
-				#elif UNITY_IOS // && !UNITY_EDITOR
+				#elif UNITY_IOS
 					CLoadRewardVideoWithSlotId(slot_id);
 				#endif
 			}
@@ -121,7 +128,7 @@ namespace CTServiceSDK {
 		{
 			try
 			{
-				#if (UNITY_ANDROID) // && !UNITY_EDITOR
+				#if (UNITY_ANDROID)
 				if(ctVideo != null){
 					bool isReady = ctVideo.Call<bool>("isRewardedVideoAvailable");
 					if(isReady)
@@ -131,7 +138,7 @@ namespace CTServiceSDK {
 				}else{
 					Debug.Log("CTError: showRewardVideo error ");
 				}
-				#elif UNITY_IOS // && !UNITY_EDITOR
+				#elif UNITY_IOS
 					CShowRewardVideo();
 				#endif
 			}
@@ -151,11 +158,11 @@ namespace CTServiceSDK {
 		{
 			try
 			{
-				#if (UNITY_ANDROID) // && !UNITY_EDITOR
+				#if (UNITY_ANDROID)
 					if(ctVideo != null){
 						return ctVideo.Call<bool>("isRewardedVideoAvailable");
 					}
-				#elif UNITY_IOS // && !UNITY_EDITOR
+				#elif UNITY_IOS
 					return CCheckRewardVideoIsReady();
 				#endif
 			}
@@ -275,6 +282,127 @@ namespace CTServiceSDK {
 		public void rewardVideoClosedEvent() {
 			if(rewardVideoClosed != null){
 				rewardVideoClosed();
+			}
+		}
+
+		/**
+ 		Get Interstitial Ad
+ 		First,you should Call (loadInterstitialWithSlotId) method get Interstitial！
+ 		Then On his success delegate method invokes (showInterstitia） method
+		@param slot_id         Cloud Tech AD ID
+ 		*/
+		public static void preloadInterstitialWithSlotId(string slot_id)
+		{
+			try
+			{
+				createDelegateObj();
+				#if (UNITY_ANDROID)
+				if(adsClass != null && unityPlayerClass != null){
+					currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+					adsClass.Call("preloadInterstitial", currentActivity, slot_id, true, true);
+				}
+				#elif UNITY_IOS
+
+				#endif
+			}
+			catch (Exception e)
+			{
+				Debug.Log(e.StackTrace);
+			}
+		}
+
+		/**
+ 		show showInterstitial	you should call it in the loadInterstitialWithSlotId delegate function.
+		 */
+		public static void showInterstitial()
+		{
+			try
+			{
+				#if (UNITY_ANDROID)
+				if(adsClass != null){
+					adsClass.Call("showInterstitial");
+				}
+				#elif UNITY_IOS
+
+				#endif
+			}
+			catch (Exception e)
+			{
+				Debug.Log(e.StackTrace);
+			}
+		}
+
+		public static bool isInterstitialAvailable(){
+			#if (UNITY_ANDROID)
+			if(adsClass != null && unityPlayerClass != null){
+				return adsClass.Call<bool>("isInterstitialAvailable");
+			}
+			return false;
+			#elif UNITY_IOS
+			return false;
+			#endif
+		}
+
+		/**
+		*  Interstitial is loaded successfully, you can call showInterstitial() in this function.
+		**/
+		public static event Action interstitialLoadSuccess;
+		/**
+		*  Interstitial is loaded failed;
+		**/
+		public static event Action<string> interstitialLoadFailed;
+		/**
+		*   user click Ads
+		**/
+		public static event Action interstitialDidClickRewardAd;
+		/**
+		*  will leave Application
+		**/
+		public static event Action interstitialWillLeaveApplication;
+		/**
+		*  jump AppStroe failed
+		**/
+		public static event Action interstitialJumpfailed;
+		/**
+		*  jump AppStroe failed
+		**/
+		public static event Action interstitialClose;
+
+		public void interstitialLoadSuccessEvent() {
+			Debug.Log ("U3D delegate, interstitialLoadSuccessEvent");
+			if(interstitialLoadSuccess != null){
+				interstitialLoadSuccess();
+			}
+		}
+
+		public void interstitialLoadingFailedEvent(string message) {
+			Debug.Log ("U3D delegate, interstitialLoadingFailedEvent");
+			if(interstitialLoadFailed != null){
+				interstitialLoadFailed(message);
+			}
+		}
+
+		public void interstitialDidClickAdEvent() {
+			if(interstitialDidClickRewardAd != null){
+				interstitialDidClickRewardAd();
+			}
+		}
+
+		public void interstitialWillLeaveApplicationEvent() {
+			if(interstitialWillLeaveApplication != null){
+				interstitialWillLeaveApplication();
+			}
+		}
+
+		public void interstitialJumpfailedEvent() {
+			if(interstitialJumpfailed != null){
+				interstitialJumpfailed();
+			}
+		}
+
+		public void interstitialCloseEvent() {
+			if(interstitialClose != null){
+				interstitialClose();
 			}
 		}
 	}

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using CTServiceSDK;
 
-public class CTCanvas : MonoBehaviour {
+public class CTRewardedVideo : MonoBehaviour {
 	#if UNITY_ANDROID
 	public string slot_id = "88408505";
 	#elif UNITY_IOS
@@ -88,7 +88,6 @@ public class CTCanvas : MonoBehaviour {
 	 * 
 	 * reward video delegate
 	 * 
-	 * delegate method names should be the same as follows
 	 * 
 	 * */
 

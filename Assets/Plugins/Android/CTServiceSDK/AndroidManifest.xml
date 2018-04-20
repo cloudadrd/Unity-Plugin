@@ -25,6 +25,10 @@
         <activity android:name="com.cloudtech.videoads.view.CTInterstitialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 
+        <activity android:name="com.cloudtech.ads.view.InterstitialActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:launchMode="singleInstance"/>
+
         <service
         android:name="com.cloudtech.ads.core.AdGuardService"
         android:permission="android.permission.BIND_JOB_SERVICE"/>
