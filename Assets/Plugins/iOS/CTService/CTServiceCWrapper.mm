@@ -37,12 +37,16 @@ extern "C"{
         return [[CTService shareManager] checkRewardVideoIsReady];
     }
     
-    void CPreloadAdInterstitialWithSlotId()(const char* slot_id){
+    void CPreloadAdInterstitialWithSlotId(const char* slot_id){
         [[CTService shareManager] preloadAdInterstitialWithSlotId:CreateNSString(slot_id) delegate:nil isTest:NO];
     }
     
-    void CShowInterstitial{
+    void CShowInterstitial(){
         [[CTService shareManager] interstitialAdShow];
+    }
+    
+    bool CCheckInterstitialIsReady(){
+        return [[CTService shareManager] interstitialAdIsReady];
     }
 }
 

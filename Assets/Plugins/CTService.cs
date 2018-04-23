@@ -302,7 +302,7 @@ namespace CTServiceSDK {
 					adsClass.Call("preloadInterstitial", currentActivity, slot_id, true, true);
 				}
 				#elif UNITY_IOS
-
+				CPreloadAdInterstitialWithSlotId(slot_id);
 				#endif
 			}
 			catch (Exception e)
@@ -323,7 +323,7 @@ namespace CTServiceSDK {
 					adsClass.Call("showInterstitial");
 				}
 				#elif UNITY_IOS
-
+				CShowInterstitial();
 				#endif
 			}
 			catch (Exception e)
@@ -332,15 +332,23 @@ namespace CTServiceSDK {
 			}
 		}
 
-		public static bool isInterstitialAvailable(){
-			#if (UNITY_ANDROID)
-			if(adsClass != null && unityPlayerClass != null){
-				return adsClass.Call<bool>("isInterstitialAvailable");
+		public static bool isInterstitialAvailable()
+		{
+			try
+			{
+				#if (UNITY_ANDROID)
+				if(adsClass != null && unityPlayerClass != null){
+					return adsClass.Call<bool>("isInterstitialAvailable");
+				}
+				return false;
+				#elif UNITY_IOS
+				return CCheckInterstitialIsReady();
+				#endif
 			}
-			return false;
-			#elif UNITY_IOS
-			return false;
-			#endif
+			catch (Exception e)
+			{
+				Debug.Log(e.StackTrace);
+			}
 		}
 
 		/**

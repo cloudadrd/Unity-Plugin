@@ -33,7 +33,6 @@ public class CTInterstitial : MonoBehaviour {
 		CTService.interstitialLoadSuccess += CTInterstitialLoadSuccess;
 		CTService.interstitialLoadFailed += CTInterstitialLoadingFailed;
 		CTService.interstitialDidClickRewardAd += CTInterstitialDidClickRewardAd;
-		CTService.interstitialWillLeaveApplication += CTInterstitialWillLeaveApplication;
 		CTService.interstitialJumpfailed += CTInterstitialJumpfailed;
 		CTService.interstitialClose += CTInterstitialClose;
 	}
@@ -42,7 +41,6 @@ public class CTInterstitial : MonoBehaviour {
 		CTService.interstitialLoadSuccess -= CTInterstitialLoadSuccess;
 		CTService.interstitialLoadFailed -= CTInterstitialLoadingFailed;
 		CTService.interstitialDidClickRewardAd -= CTInterstitialDidClickRewardAd;
-		CTService.interstitialWillLeaveApplication -= CTInterstitialWillLeaveApplication;
 		CTService.interstitialJumpfailed -= CTInterstitialJumpfailed;
 		CTService.interstitialClose -= CTInterstitialClose;
 	}
