@@ -6,9 +6,9 @@ using CTServiceSDK;
 
 public class CTRewardedVideo : MonoBehaviour {
 	#if UNITY_ANDROID
-	public string slot_id = "1601";
+	private string slot_id = "1601";
 	#elif UNITY_IOS
-	public string slot_id = "82095565";
+	private string slot_id = "30769964";
 	#endif
 	//notice: attach your UI objcet here
 	public Button loadBtn;

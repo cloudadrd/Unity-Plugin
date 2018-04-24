@@ -6,9 +6,9 @@ using CTServiceSDK;
 
 public class CTCamera : MonoBehaviour {
 	#if UNITY_ANDROID
-	public string slot_id = "248";
+	private string slot_id = "248";
 	#elif UNITY_IOS
-	public string slot_id = "82095565";
+	private string slot_id = "30769964";
 	#endif
 
 	void Awake () {
