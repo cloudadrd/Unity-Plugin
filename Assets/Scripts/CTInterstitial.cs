@@ -103,11 +103,6 @@ public class CTInterstitial : MonoBehaviour {
 		Debug.Log ("U3D delegate, CTInterstitialWillLeaveApplication");
 	}
 
-	//will leave Application, only for iOS
-	void CTInterstitialWillLeaveApplication(){
-		Debug.Log ("U3D delegate, CTInterstitialWillLeaveApplication");
-	}
-
 	void CTInterstitialClose(){
 		Debug.Log ("U3D delegate, CTInterstitialClose");
 		setReady (false, @"isReadyToShow: NO");

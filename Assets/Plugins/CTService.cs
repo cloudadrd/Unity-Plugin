@@ -335,6 +335,11 @@ namespace CTServiceSDK {
 			}
 		}
 
+		/**
+ 		Check if Interstitial is read 
+
+		if true, you can call showInterstitial;
+		 */
 		public static bool isInterstitialAvailable()
 		{
 			try
