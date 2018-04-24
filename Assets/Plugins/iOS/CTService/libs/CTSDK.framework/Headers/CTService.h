@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "CTElementModel.h"
+#import "CTNativeVideoModel.h"
 
 typedef enum : NSUInteger {
     CTImageWHRateOneToOne= 0,           //Width:Hight  = 1:1
@@ -285,6 +286,47 @@ typedef enum : NSUInteger {
 - (NSString*)getSDKVersion;
 
 
+#pragma mark - Native Video Ad Interface
+/**
+ Get Native video Ad
+ Call this interface to get Native Video AD.
+ 
+ @param slot_id         Cloud Tech AD ID
+ @param delegate        Set Delegate of Ads event (<CTNativeVideoDelegate>)
+ @param WHRate          Set Image Rate
+ @param isTest          Use test advertisement or not
+ */
+- (void)getNativeVideoADswithSlotId:(NSString*)slot_id
+                           delegate:(id)delegate
+                imageWidthHightRate:(CTImageWidthHightRate)WHRate
+                             isTest:(BOOL)isTest;
+
+- (BOOL)isWifi;
+
+#pragma mark -  New Interstitial Ad Interface
+/**
+ Preload Interstitial Ad
+ Call this interface preload Interstitial AD.
+ 
+ @param slot_id         Cloud Tech AD ID
+ @param delegate        Set Delegate of Ads event (<CTADInterstitialDelegate>)
+ @param isTest          Use test advertisement or not
+ */
+- (void)preloadAdInterstitialWithSlotId:(NSString *)slot_id
+                             delegate:(id)delegate
+                               isTest:(BOOL)isTest;
+
+/**
+ Show interstitial ad
+ Call this method after preload Interstitial ad success
+ */
+- (void)interstitialAdShow;
+
+/**
+ Check interstitial ad to be Ready
+ Call this method before show ad
+ */
+- (BOOL)interstitialAdIsReady;
 @end
 
 

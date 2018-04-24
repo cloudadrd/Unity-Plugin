@@ -25,7 +25,7 @@
 @property (nonatomic, assign)float star;
 @property (nonatomic, strong)UIImage *ADsignImage;
 @property (nonatomic, strong)NSString *choices_link_url;
-
+@property (nonatomic, assign)NSInteger offer_type;//1:download ad type 2:no download ad type
 //以下变量及其方法为保留参数，暂不做处理
 @property (nonatomic, assign)NSInteger objCode;
 @property (nonatomic, assign)BOOL isFb;

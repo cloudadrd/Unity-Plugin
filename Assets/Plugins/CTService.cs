@@ -28,6 +28,9 @@ namespace CTServiceSDK {
 		[DllImport ("__Internal")]private static extern void CLoadRewardVideoWithSlotId(string slot_id);
 		[DllImport ("__Internal")]private static extern void CShowRewardVideo();
 		[DllImport ("__Internal")]private static extern bool CCheckRewardVideoIsReady();
+		[DllImport ("__Internal")]private static extern void CPreloadAdInterstitialWithSlotId(string slot_id);
+		[DllImport ("__Internal")]private static extern void CShowInterstitial();
+		[DllImport ("__Internal")]private static extern bool CCheckInterstitialIsReady();
 	#endif
 
 		/**
@@ -349,6 +352,7 @@ namespace CTServiceSDK {
 			{
 				Debug.Log(e.StackTrace);
 			}
+			return false;
 		}
 
 		/**
@@ -373,14 +377,12 @@ namespace CTServiceSDK {
 		public static event Action interstitialClose;
 
 		public void interstitialLoadSuccessEvent() {
-			Debug.Log ("U3D delegate, interstitialLoadSuccessEvent");
 			if(interstitialLoadSuccess != null){
 				interstitialLoadSuccess();
 			}
 		}
 
 		public void interstitialLoadingFailedEvent(string message) {
-			Debug.Log ("U3D delegate, interstitialLoadingFailedEvent");
 			if(interstitialLoadFailed != null){
 				interstitialLoadFailed(message);
 			}

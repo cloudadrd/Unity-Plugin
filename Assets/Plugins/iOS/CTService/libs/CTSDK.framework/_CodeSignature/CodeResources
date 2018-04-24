@@ -8,9 +8,13 @@
 		<data>
 		sARxlUI19B18srNMFzgNpn1CPNc=
 		</data>
+		<key>Headers/CTADInterstitialDelegate.h</key>
+		<data>
+		PsBjJt5Vve1x3Mci2t2aK8wegWE=
+		</data>
 		<key>Headers/CTElementModel.h</key>
 		<data>
-		L7TvURBUHN65YGMjwVIYJkszlGY=
+		QdrGUQhncaxE557VvaTsdxuw814=
 		</data>
 		<key>Headers/CTNativeAd.h</key>
 		<data>
@@ -20,21 +24,33 @@
 		<data>
 		zSAbiGZcBDumZkhIQTesPsNv85M=
 		</data>
+		<key>Headers/CTNativeVideoDelegate.h</key>
+		<data>
+		9TZlqswIAkrsoSF6dcZxyqjU/bo=
+		</data>
+		<key>Headers/CTNativeVideoModel.h</key>
+		<data>
+		sxVEhRPB5tfz6mgiRI7MyVbnGzU=
+		</data>
 		<key>Headers/CTRewardVideoDelegate.h</key>
 		<data>
 		ld2ekU6/nP0P8ENLpFJHnD2oZ8s=
 		</data>
 		<key>Headers/CTSDK.h</key>
 		<data>
-		Mg53HRrZAIGDqn+/Mn43kvT0JYw=
+		DOPDXImkMnQXO0m5zgsUbYLaodQ=
 		</data>
 		<key>Headers/CTService.h</key>
 		<data>
-		Se5ggMMOl4Ht5WrXR3VkeUz7WrA=
+		HSG1ud+wL38tIjyuee0BERZ5tOA=
+		</data>
+		<key>Headers/CTVideoViewController.h</key>
+		<data>
+		YGuUhL049SGyhpJN7GJjf1o5tcY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PQzOYA4FJ+hu/xf/RJIN+cqXrZo=
+		C7/5lexWglnRufqBY0OM6VpZWMY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -54,15 +70,26 @@
 			K0tevcZaIxmsV3Z7SFMQ2cNs6UVkSfFAMfYWeyLkfK0=
 			</data>
 		</dict>
+		<key>Headers/CTADInterstitialDelegate.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PsBjJt5Vve1x3Mci2t2aK8wegWE=
+			</data>
+			<key>hash2</key>
+			<data>
+			mnTCVThzcnD5Jxz6k3vLOf24RkHLAYI0Zx/20CPuSKw=
+			</data>
+		</dict>
 		<key>Headers/CTElementModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L7TvURBUHN65YGMjwVIYJkszlGY=
+			QdrGUQhncaxE557VvaTsdxuw814=
 			</data>
 			<key>hash2</key>
 			<data>
-			BDqsN+WITMVmutkklT3oVo8lVIWibkWYQ1GnJVwICYI=
+			AA4lfasqRbvaEOUujJGpRl3+ka5QGVDF/fbc5Mrn6eY=
 			</data>
 		</dict>
 		<key>Headers/CTNativeAd.h</key>
@@ -87,6 +114,28 @@
 			diRA3JW+v2luvyndW9uavxFIesldg5BqbMWmZm3CSZ4=
 			</data>
 		</dict>
+		<key>Headers/CTNativeVideoDelegate.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9TZlqswIAkrsoSF6dcZxyqjU/bo=
+			</data>
+			<key>hash2</key>
+			<data>
+			nnBym7OVrCV9tcQx9ivbIfWSmIH1G5LklNfPeV1ZhSw=
+			</data>
+		</dict>
+		<key>Headers/CTNativeVideoModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sxVEhRPB5tfz6mgiRI7MyVbnGzU=
+			</data>
+			<key>hash2</key>
+			<data>
+			oTYFMj7gu3hWIqDLV2yT/AyJ9NaCMNwKbbn6sw/ZPUI=
+			</data>
+		</dict>
 		<key>Headers/CTRewardVideoDelegate.h</key>
 		<dict>
 			<key>hash</key>
@@ -102,22 +151,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Mg53HRrZAIGDqn+/Mn43kvT0JYw=
+			DOPDXImkMnQXO0m5zgsUbYLaodQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			GtJBVnNfaKoszoQwbfCEawoYpIRe3DVXkzBWVeGq1rA=
+			tGVkdovbhFdLSjy6irleBc+CcWUxZretDoOCUVeXRZk=
 			</data>
 		</dict>
 		<key>Headers/CTService.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Se5ggMMOl4Ht5WrXR3VkeUz7WrA=
+			HSG1ud+wL38tIjyuee0BERZ5tOA=
 			</data>
 			<key>hash2</key>
 			<data>
-			RKY2wF/VimUGo1VnAk+fOrqlNUOL8QTuloR/LW+zJOo=
+			kjlXO+67s82ExodRzSLKC3xUgGPEVlcVAlrDdFcipFU=
+			</data>
+		</dict>
+		<key>Headers/CTVideoViewController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YGuUhL049SGyhpJN7GJjf1o5tcY=
+			</data>
+			<key>hash2</key>
+			<data>
+			xiX0FHgF4w1XGzjzGUga9cm2Jayxs2CGtJqxT8MjMa4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
