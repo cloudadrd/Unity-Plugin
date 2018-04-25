@@ -42,7 +42,7 @@ extern "C"{
     }
     
     void CShowInterstitial(){
-        [[CTService shareManager] interstitialAdShow];
+        [[CTService shareManager] interstitialAdShow:nil];
     }
     
     bool CCheckInterstitialIsReady(){
