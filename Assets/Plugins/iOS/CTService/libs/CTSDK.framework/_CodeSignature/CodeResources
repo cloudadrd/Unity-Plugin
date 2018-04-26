@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/CTService.h</key>
 		<data>
-		HSG1ud+wL38tIjyuee0BERZ5tOA=
+		ht+G7GCgShuKPrz83VsAWAKN69E=
 		</data>
 		<key>Headers/CTVideoViewController.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		C7/5lexWglnRufqBY0OM6VpZWMY=
+		R+HpyPr1riocQYpkpUFT0LFTEfI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -162,11 +162,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HSG1ud+wL38tIjyuee0BERZ5tOA=
+			ht+G7GCgShuKPrz83VsAWAKN69E=
 			</data>
 			<key>hash2</key>
 			<data>
-			kjlXO+67s82ExodRzSLKC3xUgGPEVlcVAlrDdFcipFU=
+			V27AmtNuUUYLNbwzue/fHZc9PJOfR0tpqSaPlqGbBW0=
 			</data>
 		</dict>
 		<key>Headers/CTVideoViewController.h</key>

@@ -312,7 +312,7 @@ typedef enum : NSUInteger {
  @param delegate        Set Delegate of Ads event (<CTADInterstitialDelegate>)
  @param isTest          Use test advertisement or not
  */
-- (void)preloadAdInterstitialWithSlotId:(NSString *)slot_id
+- (void)preloadInterstitialAdWithSlotId:(NSString *)slot_id
                              delegate:(id)delegate
                                isTest:(BOOL)isTest;
 
@@ -321,6 +321,12 @@ typedef enum : NSUInteger {
  Call this method after preload Interstitial ad success
  */
 - (void)interstitialAdShow;
+
+/**
+ Show interstitial ad with user vc present
+ Call this method after preload Interstitial ad success
+ */
+- (void)interstitialAdShowWithController:(UIViewController *)VC;
 
 /**
  Check interstitial ad to be Ready
