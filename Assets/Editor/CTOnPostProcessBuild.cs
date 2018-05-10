@@ -10,7 +10,7 @@ using UnityEditor.iOS.Xcode;
 using System.Xml;
 #endif
 
-public class OnPostProcessBuild : Editor {
+public class CTOnPostProcessBuild : Editor {
 	#if UNITY_IOS || UNITY_EDITOR  
 
 	[PostProcessBuild (100)]
