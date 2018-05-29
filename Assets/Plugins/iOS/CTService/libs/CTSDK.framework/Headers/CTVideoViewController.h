@@ -14,6 +14,8 @@
 @property (nonatomic , strong) NSString *imageUrl;
 @property (nonatomic , strong) UIImage *image;
 @property (nonatomic, assign) BOOL isPlaying;
+@property (nonatomic, assign) BOOL WWANPlayEnabled;
+@property (nonatomic, assign) BOOL impressionSend;
 
 - (UIView*)getMovieView;
 - (void)setFrame:(CGRect) frame;
@@ -21,4 +23,5 @@
 - (void)playVideo;
 - (void)stopVideo;
 - (void)setMute:(BOOL)isMuted;
+- (void)sendImpression;
 @end

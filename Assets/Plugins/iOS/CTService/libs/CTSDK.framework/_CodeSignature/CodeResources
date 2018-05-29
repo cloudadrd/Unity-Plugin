@@ -16,6 +16,10 @@
 		<data>
 		QdrGUQhncaxE557VvaTsdxuw814=
 		</data>
+		<key>Headers/CTMediaView.h</key>
+		<data>
+		hJbjN4gfFXNXJVEynPtRV64LHUI=
+		</data>
 		<key>Headers/CTNativeAd.h</key>
 		<data>
 		nwPJVt3FkIpsbYcrC3ewMvZBBcQ=
@@ -38,7 +42,7 @@
 		</data>
 		<key>Headers/CTSDK.h</key>
 		<data>
-		DOPDXImkMnQXO0m5zgsUbYLaodQ=
+		VyzYFFmFpHjkBHSvArZbHo1z24M=
 		</data>
 		<key>Headers/CTService.h</key>
 		<data>
@@ -46,11 +50,11 @@
 		</data>
 		<key>Headers/CTVideoViewController.h</key>
 		<data>
-		YGuUhL049SGyhpJN7GJjf1o5tcY=
+		kLOJIM/2ftXmOOLfH1KFTnvDEZc=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		R+HpyPr1riocQYpkpUFT0LFTEfI=
+		EqjMwJGNopaC7WP0I06QhoNUTTM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -90,6 +94,17 @@
 			<key>hash2</key>
 			<data>
 			AA4lfasqRbvaEOUujJGpRl3+ka5QGVDF/fbc5Mrn6eY=
+			</data>
+		</dict>
+		<key>Headers/CTMediaView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hJbjN4gfFXNXJVEynPtRV64LHUI=
+			</data>
+			<key>hash2</key>
+			<data>
+			hMdiE/oZwb5KtCel6GmlOFBjd/otvqWWv/mZX/FN9H4=
 			</data>
 		</dict>
 		<key>Headers/CTNativeAd.h</key>
@@ -151,11 +166,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DOPDXImkMnQXO0m5zgsUbYLaodQ=
+			VyzYFFmFpHjkBHSvArZbHo1z24M=
 			</data>
 			<key>hash2</key>
 			<data>
-			tGVkdovbhFdLSjy6irleBc+CcWUxZretDoOCUVeXRZk=
+			c6gyoXb2pZm077f0QRde6zQD2y90U6SIhRW01xlWNSI=
 			</data>
 		</dict>
 		<key>Headers/CTService.h</key>
@@ -173,11 +188,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YGuUhL049SGyhpJN7GJjf1o5tcY=
+			kLOJIM/2ftXmOOLfH1KFTnvDEZc=
 			</data>
 			<key>hash2</key>
 			<data>
-			xiX0FHgF4w1XGzjzGUga9cm2Jayxs2CGtJqxT8MjMa4=
+			uM2+mmRuN4YlXiludBcJDdpkD/v14gzfPd67MTP1mwU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
