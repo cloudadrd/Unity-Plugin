@@ -95,7 +95,7 @@ public class CTInterstitial : MonoBehaviour {
 
 	//click ad, only for iOS
 	void CTInterstitialDidClickRewardAd(){
-		Debug.Log ("U3D delegate, CTInterstitialDidClickRewardAd");
+		Debug.Log ("U3D delegate, CTInterstitialDidClickAd");
 	}
 
 	//jump to AppStroe failed, only for iOS
