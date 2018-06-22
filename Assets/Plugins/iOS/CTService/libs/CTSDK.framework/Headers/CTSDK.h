@@ -16,8 +16,8 @@
 #import <CTSDK/CTNativeVideoModel.h>
 #import <CTSDK/CTNativeVideoDelegate.h>
 #import <CTSDK/CTVideoViewController.h>
-#import <CTSDK/CTADInterstitialDelegate.h>
 #import <CTSDK/CTMediaView.h>
+#import <CTSDK/CTADMRAIDVIew.h>
 //! Project version number for CTSDK.
 FOUNDATION_EXPORT double CTSDKVersionNumber;
 

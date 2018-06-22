@@ -38,15 +38,15 @@ extern "C"{
     }
     
     void CPreloadAdInterstitialWithSlotId(const char* slot_id){
-        [[CTService shareManager] preloadInterstitialAdWithSlotId:CreateNSString(slot_id) delegate:nil isTest:NO];
+        [[CTService shareManager] preloadMRAIDInterstitialAdWithSlotId:CreateNSString(slot_id) delegate:nil isTest:NO];
     }
     
     void CShowInterstitial(){
-        [[CTService shareManager] interstitialAdShow];
+        [[CTService shareManager] mraidInterstitialShow];
     }
     
     bool CCheckInterstitialIsReady(){
-        return [[CTService shareManager] interstitialAdIsReady];
+        return [[CTService shareManager] mraidInterstitialIsReady];
     }
 }
 
