@@ -373,10 +373,6 @@ namespace CTServiceSDK {
 		**/
 		public static event Action interstitialDidClickRewardAd;
 		/**
-		*  jump AppStroe failed
-		**/
-		public static event Action interstitialJumpfailed;
-		/**
 		*  Interstitial is hidden
 		**/
 		public static event Action interstitialClose;
@@ -396,12 +392,6 @@ namespace CTServiceSDK {
 		public void interstitialDidClickAdEvent() {
 			if(interstitialDidClickRewardAd != null){
 				interstitialDidClickRewardAd();
-			}
-		}
-
-		public void interstitialJumpfailedEvent() {
-			if(interstitialJumpfailed != null){
-				interstitialJumpfailed();
 			}
 		}
 
