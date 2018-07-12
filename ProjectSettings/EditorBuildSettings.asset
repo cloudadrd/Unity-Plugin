@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scripts/CTServiceDemo.unity
+    path: Assets/Scene/CTServiceDemo.unity
     guid: 4e2aa85d673a2430c90fb84542e12565

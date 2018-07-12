@@ -302,7 +302,7 @@ namespace CTServiceSDK {
 				#if (UNITY_ANDROID)
 				if(adsClass != null && unityPlayerClass != null){
 					currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
-					adsClass.Call("preloadInterstitial", currentActivity, slot_id, true, true);
+					adsClass.Call("preloadInterstitial", currentActivity, slot_id);
 				}
 				#elif UNITY_IOS
 				CPreloadAdInterstitialWithSlotId(slot_id);
