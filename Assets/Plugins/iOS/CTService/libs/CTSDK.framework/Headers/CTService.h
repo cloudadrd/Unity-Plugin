@@ -135,9 +135,9 @@ typedef enum : NSUInteger {
 /**
  Get Banner Ad View
  
- @param slot_id         Cloud Tech Banner AD ID
+ @param slotid         Cloud Tech Banner AD ID
  @param delegate        Set Delegate of Ad event(<CTAdViewDelegate>)
- @param adSize          requre Ad Size
+ @param size          requre Ad Size
  @param containerView   the view which shows ads on
  @param isTest          Use test advertisement or not
  */
@@ -250,7 +250,7 @@ typedef enum : NSUInteger {
  Preload Interstitial Ad
  Call this interface preload Interstitial AD.
  
- @param slot_id         Cloud Tech AD ID
+ @param slotid         Cloud Tech AD ID
  @param delegate        Set Delegate of Ads event (<CTAdViewDelegate>)
  @param isTest          Use test advertisement or not
  */

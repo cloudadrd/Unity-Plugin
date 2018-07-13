@@ -24,7 +24,7 @@
 @property (nonatomic, strong)NSString * _Nullable choices_link_url;
 @property (nonatomic, strong)UIViewController * _Nonnull storeViewController; //video-store vc
 @property (nonatomic, strong)CTVideoViewController * _Nonnull videoViewController;  //video vc, for users to add on their views and controll video play or stop
-
+@property (nonatomic, strong)NSString * _Nullable slot; //request slotId
 //When the ad is showed , call this interface to send impression
 - (void)impressionForAd;
 

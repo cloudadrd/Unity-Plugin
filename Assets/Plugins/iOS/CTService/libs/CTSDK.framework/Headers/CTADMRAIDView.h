@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <EventKit/EventKit.h>
-
 /** Ad placement type.
  */
 typedef enum
@@ -116,26 +114,26 @@ typedef enum
 //specify if support calendar, default return no
 //Privacy - Calendars Usage Description
 //Privacy - Reminders Usage Description
-- (BOOL)CTAdViewSupportsCalendar:(CTADMRAIDView*)adView;
+//- (BOOL)CTAdViewSupportsCalendar:(CTADMRAIDView*)adView; // Close this method Temporary
 
 //specify if support store picture, default return no. if return yes, add privilage below to plist
 //Privacy - Photo Library Additions Usage Description
 //Privacy - Photo Library Usage Description
-- (BOOL)CTAdViewSupportsStorePicture:(CTADMRAIDView*)adView;
+//- (BOOL)CTAdViewSupportsStorePicture:(CTADMRAIDView*)adView;//Close this method Temporary
 
 //specify if support location, default return no. if return yes, add privilage below to plist
 //Privacy - Location Always and When In Use Usage Description
 //Privacy - Location When In Use Usage Description
-- (BOOL)CTAdViewSupportsLocation:(CTADMRAIDView*)adView;
+//- (BOOL)CTAdViewSupportsLocation:(CTADMRAIDView*)adView;//Close this method Temporary
 
 //allow mraid ad play video using safari
 - (BOOL)CTAdView:(CTADMRAIDView*)adView shouldPlayVideo:(NSString*)videoURL;
 
 //mraid ad save calender event
-- (BOOL)CTAdView:(CTADMRAIDView*)adView shouldSaveCalendarEvent:(EKEvent*)event inEventStore:(EKEventStore*)eventStore;
+//- (BOOL)CTAdView:(CTADMRAIDView*)adView shouldSaveCalendarEvent:(EKEvent*)event inEventStore:(EKEventStore*)eventStore; //Close this method Temporary
 
 //mraid ad save photo to gallery
-- (BOOL)CTAdView:(CTADMRAIDView*)adView shouldSavePhotoToCameraRoll:(UIImage*)image;
+//- (BOOL)CTAdView:(CTADMRAIDView*)adView shouldSavePhotoToCameraRoll:(UIImage*)image;//Close this method Temporary
 
 //specify view controller to present modal vc
 - (UIViewController*)CTAdViewPresentationController:(CTADMRAIDView*)adView;
