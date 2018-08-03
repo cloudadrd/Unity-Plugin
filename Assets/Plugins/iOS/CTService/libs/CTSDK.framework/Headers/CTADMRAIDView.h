@@ -38,7 +38,7 @@ typedef enum
 @property (nonatomic, assign) BOOL modalDismissAfterPresent;
 @property (nonatomic, assign) BOOL useInternalBrowser;
 @property (nonatomic, assign) BOOL isReady;
-
+@property (nonatomic, readonly) NSString* slot;
 
 /** Unregisters the protocol class used to intercept the MRAID bridge request
  from rich media ads.
@@ -59,6 +59,9 @@ typedef enum
 
 //interstitial is ready, call mraidInterstitialShow to show it.
 - (void)CTAdViewDidRecieveInterstitialAd;
+
+//interstitial is ready, call mraidInterstitialShow to show it. include Request Slotid
+- (void)CTAdViewDidRecieveInterstitialAdForSlot:(NSString *)slot;
 
 //error while request ads.
 - (void)CTAdView:(CTADMRAIDView*)adView didFailToReceiveAdWithError:(NSError*)error;
