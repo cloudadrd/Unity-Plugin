@@ -48,5 +48,9 @@ extern "C"{
     bool CCheckInterstitialIsReady(){
         return [[CTService shareManager] mraidInterstitialIsReady];
     }
+    
+    void CUploadConsentValue(const char* consentValue, const char* consentType){
+        [[CTService shareManager] uploadConsentValue:CreateNSString(consentValue) consentType:CreateNSString(consentType) complete:nil];
+    }
 }
 

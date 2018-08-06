@@ -13,5 +13,6 @@ public class CTCamera : MonoBehaviour {
 
 	void Awake () {
 		CTService.loadRequestGetCTSDKConfigBySlot_id (slot_id);
+		CTService.uploadConsent ("yes", "gdpr");
 	}
 }

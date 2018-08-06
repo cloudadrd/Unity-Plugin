@@ -31,6 +31,7 @@ namespace CTServiceSDK {
 		[DllImport ("__Internal")]private static extern void CPreloadAdInterstitialWithSlotId(string slot_id);
 		[DllImport ("__Internal")]private static extern void CShowInterstitial();
 		[DllImport ("__Internal")]private static extern bool CCheckInterstitialIsReady();
+		[DllImport ("__Internal")]private static extern bool CUploadConsentValue(string consentValue, string consentType);
 	#endif
 
 		/**
@@ -95,6 +96,25 @@ namespace CTServiceSDK {
 			}
 		}
 
+		//gdpr interface
+		public static void uploadConsent(string consentValue, string consentType){
+			#if (UNITY_ANDROID)
+				if(ctClass == null)
+					ctClass = new AndroidJavaClass(SDK_CLASS);
+
+				if(unityPlayerClass == null)
+					unityPlayerClass = new AndroidJavaClass(UNITY_CLASS);
+
+				bool agreed = false;
+				if (consentValue == "yes")
+					agreed = true;
+
+				currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+				ctClass.CallStatic("uploadConsent", currentActivity, agreed, consentType, null); 
+			#elif UNITY_IOS
+				CUploadConsentValue(consentValue, consentType);
+			#endif
+		}
 
 		/**
  		Get RewardVideo Ad
