@@ -106,7 +106,7 @@ namespace CTServiceSDK {
 					unityPlayerClass = new AndroidJavaClass(UNITY_CLASS);
 
 				bool agreed = false;
-				if (consentValue == "yes")
+				if (consentValue.ToUpper() == "YES")
 					agreed = true;
 
 				currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
