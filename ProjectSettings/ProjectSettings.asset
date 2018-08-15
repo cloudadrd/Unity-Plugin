@@ -158,10 +158,10 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.gmedal.goldgmedel
+    Android: com.gmedal.goldgmedelelu3d
     Standalone: unity.DefaultCompany.CTServiceU3DTestCase
     Tizen: 
-    iOS: com.gmedal.goldgmedel
+    iOS: com.gmedal.goldgmedelelu3d
     tvOS: 
   buildNumber:
     iOS: 1
