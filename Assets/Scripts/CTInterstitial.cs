@@ -6,7 +6,7 @@ using CTServiceSDK;
 
 public class CTInterstitial : MonoBehaviour {
 	#if UNITY_ANDROID
-	private string slot_id = "248";
+	private string slot_id = "11546588";
 	#elif UNITY_IOS
 	private string slot_id = "53479848";
 	#endif
