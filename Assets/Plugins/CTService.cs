@@ -9,7 +9,7 @@ namespace CTServiceSDK {
 	public class CTService : MonoBehaviour {
 		
 		private static string delegateName = "CTServiceDelegate";
-		public const string version = "1.20";
+		public const string version = "1.21";
 
 	#if UNITY_ANDROID// && !UNITY_EDITOR
 		private static AndroidJavaClass ctClass = null;
