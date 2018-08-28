@@ -27,10 +27,6 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:launchMode="singleInstance"/>
 
-        <service
-        android:name="com.cloudtech.ads.core.AdGuardService"
-        android:permission="android.permission.BIND_JOB_SERVICE"/>
-
         <service android:name="com.cloudtech.multidownload.service.DownloadService"/>
 
     </application>
