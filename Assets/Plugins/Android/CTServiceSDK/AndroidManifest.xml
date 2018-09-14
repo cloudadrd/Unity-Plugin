@@ -24,8 +24,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 
         <activity android:name="com.cloudtech.ads.view.InterstitialActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:launchMode="singleInstance"/>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
 
         <service android:name="com.cloudtech.multidownload.service.DownloadService"/>
 
