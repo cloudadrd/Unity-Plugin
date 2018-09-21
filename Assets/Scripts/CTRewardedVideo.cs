@@ -24,11 +24,6 @@ public class CTRewardedVideo : MonoBehaviour {
 
 	//set delegate
 	void OnEnable() {
-		setupDelegates();
-	}
-
-	//set delegate
-	void setupDelegates(){
 		CTService.rewardVideoLoadSuccess += CTRewardVideoLoadSuccess;
 		CTService.rewardVideoLoadingFailed += CTRewardVideoLoadingFailed;
 		CTService.rewardVideoDidStartPlaying += CTRewardVideoDidStartPlaying;
