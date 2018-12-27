@@ -109,7 +109,7 @@ public class AppoRewardedVideo : MonoBehaviour {
 		Debug.Log ("U3D delegate, AppoRewardVideoDidFinishPlaying");
 	}
 
-	//click ad, only for iOS
+	//click ad
 	void AppoRewardVideoDidClickRewardAd(){
 		Debug.Log ("U3D delegate, AppoRewardVideoDidClickRewardAd");
 	}
