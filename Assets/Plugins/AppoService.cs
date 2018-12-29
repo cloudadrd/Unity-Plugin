@@ -16,7 +16,7 @@ namespace AppoServiceSDK {
 		private static string SDK_CLASS = "com.zcoup.base.core.ZcoupSDK";
 		private static AndroidJavaClass cmClass = null;
 		private static string CM_CLASS = "com.zcoup.video.unity.ZCUnityService";
-		private static AndroidJavaObject ctVideo = null;
+		private static AndroidJavaObject appoVideo = null;
 		private static AndroidJavaClass unityPlayerClass = null;
 		private static string UNITY_CLASS = "com.unity3d.player.UnityPlayer";
 		private static AndroidJavaObject currentActivity = null;
@@ -64,10 +64,10 @@ namespace AppoServiceSDK {
 					else
 						Debug.Log("AppoError: createInstance error ");
 
-					ctVideo = cmClass.GetStatic<AndroidJavaObject>("sInstance");
+					appoVideo = cmClass.GetStatic<AndroidJavaObject>("sInstance");
 
-					if(ctVideo != null)
-						ctVideo.Call("setUnityDelegateObjName", delegateName); 
+					if(appoVideo != null)
+						appoVideo.Call("setUnityDelegateObjName", delegateName); 
 					else
 						Debug.Log("AppoError: setUnityDelegateObjName error ");
 
@@ -118,21 +118,21 @@ namespace AppoServiceSDK {
 
 		/**
  		Get RewardVideo Ad
- 		First,you should Call (loadRewardVideoWithSlotId) method get RewardVideo Ad！
- 		Then On success delegate method invokes (showRewardVideo） method
-		@param slot_id         Cloud Tech AD ID
+ 		First,you should Call (loadRewardedVideo) method get RewardVideo Ad！
+ 		Then On success delegate method invokes (showRewardedVideo） method
+		@param slot_id         Slot ID
  		*/
-		public static void loadRewardVideoWithSlotId(string slot_id)
+		public static void loadRewardedVideo(string slot_id)
 		{
 			try
 			{
 				createDelegateObj();
 				#if (UNITY_ANDROID)
-				if(ctVideo != null && unityPlayerClass!= null){
+				if(appoVideo != null && unityPlayerClass!= null){
 					currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
-					ctVideo.Call("preloadRewardedVideo", currentActivity, slot_id);
+					appoVideo.Call("preloadRewardedVideo", currentActivity, slot_id);
 				}else{
-					Debug.Log("AppoError: loadRewardVideoWithSlotId error ");
+					Debug.Log("AppoError: loadRewardedVideo error ");
 				}
 				#elif UNITY_IOS
 					CLoadRewardVideoWithSlotId(slot_id);
@@ -147,19 +147,19 @@ namespace AppoServiceSDK {
 		/**
  		show RewardVideo	you should call it in the rewardVideoLoadSuccess delegate function.
 		 */
-		public static void showRewardVideo(string slot_id)
+		public static void showRewardedVideo(string slot_id)
 		{
 			try
 			{
 				#if (UNITY_ANDROID)
-				if(ctVideo != null){
-					bool isReady = ctVideo.Call<bool>("isRewardedVideoAvailable");
+				if(appoVideo != null){
+					bool isReady = appoVideo.Call<bool>("isRewardedVideoAvailable");
 					if(isReady)
-						ctVideo.Call("showRewardedVideo");
+						appoVideo.Call("showRewardedVideo");
 					else
 						Debug.Log("Rewarded video is not loaded");
 				}else{
-					Debug.Log("AppoError: showRewardVideo error ");
+					Debug.Log("AppoError: showRewardedVideo error ");
 				}
 				#elif UNITY_IOS
 					CShowRewardVideo();
@@ -174,16 +174,16 @@ namespace AppoServiceSDK {
 		/**
  		Check if RewardVideo is read 
 
-		if true, you can call showRewardVideo;
+		if true, you can call showRewardedVideo;
 		 */
 
-		public static bool checkRewardVideoIsReady()
+		public static bool isRewardedVideoReady()
 		{
 			try
 			{
 				#if (UNITY_ANDROID)
-					if(ctVideo != null){
-						return ctVideo.Call<bool>("isRewardedVideoAvailable");
+					if(appoVideo != null){
+						return appoVideo.Call<bool>("isRewardedVideoAvailable");
 					}
 				#elif UNITY_IOS
 					return CCheckRewardVideoIsReady();
@@ -205,7 +205,7 @@ namespace AppoServiceSDK {
 			cmClass = null;
 			unityPlayerClass = null;
 			currentActivity = null;
-			ctVideo = null;
+			appoVideo = null;
 			#endif
 		}
 			
@@ -214,11 +214,11 @@ namespace AppoServiceSDK {
 		*/
 
 		/**
-		*  video is loaded successfully, you can call showRewardVideo() in this function.
+		*  video is loaded successfully, you can call showRewardedVideo() in this function.
 		**/
 		public static event Action rewardVideoLoadSuccess;
 		/**
-		*  video is loaded failed, you cannot showRewardVideo();
+		*  video is loaded failed, you cannot showRewardedVideo();
 		**/
 		public static event Action<string> rewardVideoLoadingFailed;
 		/**
@@ -312,9 +312,9 @@ namespace AppoServiceSDK {
  		Get Interstitial Ad
  		First,you should Call (loadInterstitialWithSlotId) method get Interstitial！
  		Then On his success delegate method invokes (showInterstitia） method
-		@param slot_id         Cloud Tech AD ID
+		@param slot_id         Slot ID
  		*/
-		public static void preloadInterstitialWithSlotId(string slot_id)
+		public static void preloadInterstitialAD(string slot_id)
 		{
 			try
 			{

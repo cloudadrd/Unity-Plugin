@@ -20,7 +20,7 @@ public class AppoInterstitial : MonoBehaviour {
 		showBtn.onClick.AddListener (showBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
 		//Notice: load Interstitial ad when you init UI.
-		AppoService.preloadInterstitialWithSlotId (slot_id); 
+		AppoService.preloadInterstitialAD (slot_id); 
 	}
 	
 	//set delegate
@@ -60,7 +60,7 @@ public class AppoInterstitial : MonoBehaviour {
 
 	void loadBtnClick(){
 		//load Interstitial ad
-		AppoService.preloadInterstitialWithSlotId (slot_id);
+		AppoService.preloadInterstitialAD (slot_id);
 		Debug.Log ("Appo Interstitial loadBtnClick");
 	}
 

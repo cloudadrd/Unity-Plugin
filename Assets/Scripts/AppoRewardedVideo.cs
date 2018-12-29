@@ -19,7 +19,7 @@ public class AppoRewardedVideo : MonoBehaviour {
 		playBtn.onClick.AddListener (playBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
 		//Notice: load rewardvideo ad when you init UI.
-		AppoService.loadRewardVideoWithSlotId (slot_id); 
+		AppoService.loadRewardedVideo(slot_id); 
 	}
 
 	//set delegate
@@ -56,14 +56,14 @@ public class AppoRewardedVideo : MonoBehaviour {
 	//For convenience test, we add a button to click.
 	void loadBtnClick(){
 		//load rewardvideo ad
-		AppoService.loadRewardVideoWithSlotId (slot_id);
+		AppoService.loadRewardedVideo (slot_id);
 	}
 
 	void playBtnClick(){
 		//you can also use this api to check if rewearded video is ready.
-		if (AppoService.checkRewardVideoIsReady ()) {
+		if (AppoService.isRewardedVideoReady ()) {
 			setReady (true, null);
-			AppoService.showRewardVideo (slot_id);
+			AppoService.showRewardedVideo (slot_id);
 		}
 		else
 			Debug.Log ("Appo Rewarded Video is not ready");
