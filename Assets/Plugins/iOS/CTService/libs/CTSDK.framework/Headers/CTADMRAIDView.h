@@ -47,7 +47,7 @@ typedef enum
  for "mraid.js" from a UIWebView.
  */
 - (void)unregisterProtocolClass;
-
+- (void)mraidInitializeBridge:(id)bridge forWebView:(id)wv;
 @end
 
 
@@ -68,6 +68,12 @@ typedef enum
 
 //jump to safari or internal webview
 - (BOOL)CTAdView:(CTADMRAIDView*)adView shouldOpenURL:(NSURL*)url;
+
+//mraid ad clicked
+- (void)CTAdViewClicked:(CTADMRAIDView*)adView;
+
+//mraid ad show
+- (void)CTAdMaridAdShow:(CTADMRAIDView*)adView;
 
 //did click close button
 - (void)CTAdViewCloseButtonPressed:(CTADMRAIDView*)adView;

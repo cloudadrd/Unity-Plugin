@@ -133,7 +133,7 @@ typedef enum : NSUInteger {
 
 #pragma mark - Banner AD Interface
 /**
- Get Banner Ad View
+ Get Banner Ad View (Deprecated)
  
  @param slotid         Cloud Tech Banner AD ID
  @param delegate        Set Delegate of Ad event(<CTAdViewDelegate>)
@@ -141,7 +141,18 @@ typedef enum : NSUInteger {
  @param containerView   the view which shows ads on
  @param isTest          Use test advertisement or not
  */
-- (void)getMRAIDBannerAdWithSlot:(NSString*)slotid delegate:(id)delegate adSize:(CTADBannerSize)size container:(UIView*)containerView isTest:(BOOL)isTest;
+- (void)getMRAIDBannerAdWithSlot:(NSString*)slotid delegate:(id)delegate adSize:(CTADBannerSize)size container:(UIView*)containerView isTest:(BOOL)isTest NS_DEPRECATED_IOS(7.0, 12.0);
+
+
+/**
+ Get Banner Ad View
+ 
+ @param slotid         Cloud Tech Banner AD ID
+ @param delegate        Set Delegate of Ad event(<CTAdViewDelegate>)
+ @param size          requre Ad Size
+ @param isTest          Use test advertisement or not
+ */
+- (void)getMRAIDBannerAdWithSlot:(NSString*)slotid delegate:(id)delegate adSize:(CTADBannerSize)size isTest:(BOOL)isTest;
 
 
 #pragma mark - AppWall Ad Interface

@@ -1,0 +1,14 @@
+//
+//  CTConfigurationKiloo.xcconfig
+//  CTSDK
+//
+//  Created by 兰旭平 on 2018/12/26.
+//  Copyright © 2018 Mirinda. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "CTConfigurationCommon.xcconfig"
+
+GCC_PREPROCESSOR_DEFINITIONS = CT_NOADMOB=1 CT_NOFACEBOOK=1 CT_NOHIJACKED=1 CT_NOBGTIME=1 CT_NONFEELING=1 CT_NOURLPROTOCOL=1 CT_U3D=1
