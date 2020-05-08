@@ -1,0 +1,11 @@
+//
+//  ApplinsConfigurationClean.xcconfig
+//  ApplinsSDK
+//
+//  Created by 兰旭平 on 2019/1/2.
+//  Copyright © 2019 Mirinda. All rights reserved.
+//
+
+#include "ApplinsConfigurationCommon.xcconfig"
+
+GCC_PREPROCESSOR_DEFINITIONS = ALS_NOADMOB=1 ALS_NOFACEBOOK=1 ALS_NOHIJACKED=1 ALS_NOBGTIME=1 ALS_NONFEELING=1 ALS_NOURLPROTOCOL=1 ALS_ENHANCE=1

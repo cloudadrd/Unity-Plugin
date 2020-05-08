@@ -1,5 +1,5 @@
 //
-//  CTNativeVideoModel.h
+//  NativeVideoModel.h
 //  ApplinsSDK
 //
 //  Created by Applins on 2018/2/27.

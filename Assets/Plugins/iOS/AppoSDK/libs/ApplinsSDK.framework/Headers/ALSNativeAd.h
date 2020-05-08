@@ -1,5 +1,5 @@
 //
-//  CTElementAd.h
+//  ALS ElementAd.h
 //  ApplinsSDK
 //
 

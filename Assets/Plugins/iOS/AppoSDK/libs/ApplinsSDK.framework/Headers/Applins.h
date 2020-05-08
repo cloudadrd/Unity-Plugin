@@ -32,6 +32,11 @@ typedef enum : NSUInteger {
 + (instancetype)shareSDK;
 
 /**
+ Set using https request
+ */
+- (void)setSchemaHttps;
+
+/**
  Get Applins AD Config in Appdelegate(didFinishLaunchingWithOptions:)
 
  @param slot_id Ad
@@ -48,7 +53,18 @@ typedef enum : NSUInteger {
 - (void)uploadConsentValue:(NSString *)consentValue
                consentType:(NSString *)consentType
                   complete:(void(^)(BOOL state))complete;
+/*
+Set whether this user is a child
+@param child  if the user is a child, set YES, else set NO
+*/
+- (void)setIsChildDirected:(BOOL)child;
 
+
+/*
+Get whether this user is a child
+*/
+
+- (BOOL)isChildDirected;
 #pragma mark - Native Ad Interface（Return Ad Elements）
 /**
  We recommend use ALSNative Interface！！！
@@ -155,33 +171,33 @@ typedef enum : NSUInteger {
  */
 
 - (void)getBannerAD:(NSString*)slotid delegate:(id)delegate adSize:(ALSBannerSize)size isTest:(BOOL)isTest;
-
-
-#pragma mark - AppWall Ad Interface
-/**
- Get AppWall ViewController
- First,you should Call preloadAppWall method,then call showAppWallViewController method show Appwall.
- 
- @param slot_id         Native AD ID
- @param customColor     If you want set custom UI,you should create ALSCustomColor object
- @param delegate        Set Delegate of Ads event (<ALSAppWallDelegate>)
- @param isTest          Use test advertisement or not
- @param success         The request is successful Block
- @param failure         The request failed Block, retuen error
- */
-- (void)preloadAppWall:(NSString *)slot_id
-           customColor:(ALSCustomColor *)customColor
-              delegate:(id)delegate
-                isTest:(BOOL)isTest
-               success:(void(^)())success
-                failure:(void(^)(NSError *error))failure;
-
-/**
- Get App Wall ViewController
-
- @return AppWallViewController
- */
-- (UIViewController *)showAppWallViewController;
+//
+//
+//#pragma mark - AppWall Ad Interface
+///**
+// Get AppWall ViewController
+// First,you should Call preloadAppWall method,then call showAppWallViewController method show Appwall.
+// 
+// @param slot_id         Native AD ID
+// @param customColor     If you want set custom UI,you should create ALSCustomColor object
+// @param delegate        Set Delegate of Ads event (<ALSAppWallDelegate>)
+// @param isTest          Use test advertisement or not
+// @param success         The request is successful Block
+// @param failure         The request failed Block, retuen error
+// */
+//- (void)preloadAppWall:(NSString *)slot_id
+//           customColor:(ALSCustomColor *)customColor
+//              delegate:(id)delegate
+//                isTest:(BOOL)isTest
+//               success:(void(^)())success
+//                failure:(void(^)(NSError *error))failure;
+//
+///**
+// Get App Wall ViewController
+//
+// @return AppWallViewController
+// */
+//- (UIViewController *)showAppWallViewController;
 
 
 #pragma mark - RewardVideo Ad Interface
@@ -280,4 +296,27 @@ typedef enum : NSUInteger {
  Call this method before show ad
  */
 - (BOOL)isInterstitialReady;
+
+#pragma mark - splash ad
+/**
+Preload Splash Ad
+Call this interface preload Splash AD.
+ 
+@param slotid          Splash slot ID
+@param delegate      Set Delegate of Ads event
+@param window          Set UIWindow
+@param launchImage          Set LaunchImage
+@param customAdView        Set bottom custom view if needed
+@param waitAdTime        Set loading time, ad will not show if not ready during waitAdTime
+@param isTest          Use test advertisement or not
+ */
+- (void)preloadaAndShowSplashAd:(NSString *)slotid delegate:(id)delegate window:(UIWindow*)window launchImage:(UIImage*)launchImage customAdView:(UIView*)view waitAdTime:(float)waitTime isTest:(BOOL)isTest;
+
+/**
+ Show Splash ad
+ Call this method after preload Splash ad success
+ */
+//- (void)showSplashlAd;
+
+
 @end

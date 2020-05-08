@@ -36,7 +36,6 @@ typedef enum
 @property (nonatomic, readonly) ALSAdViewPlacementType placementType;
 @property (nonatomic, readonly) UIView* expandView;
 @property (nonatomic, assign) BOOL modalDismissAfterPresent;
-@property (nonatomic, assign) BOOL useInternalBrowser;
 @property (nonatomic, assign) BOOL isReady;
 @property (nonatomic, readonly) NSString* slot;
 
@@ -44,7 +43,7 @@ typedef enum
  from rich media ads.
  
  Note: The registered NSURLProtocol class used by the SDK only intercepts requests
- for "mraid.js" from a UIWebView.
+ for "mraid.js" from a WebView.
  */
 - (void)unregisterProtocolClass;
 - (void)mraidInitializeBridge:(id)bridge forWebView:(id)wv;

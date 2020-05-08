@@ -18,6 +18,7 @@
 #import <ApplinsSDK/ALSVideoViewController.h>
 #import <ApplinsSDK/ALSMediaView.h>
 #import <ApplinsSDK/ALSADMRAIDVIew.h>
+#import <ApplinsSDK/ALSSplashAdDelegate.h>
 
 //! Project version number for ApplinsSDK.
 FOUNDATION_EXPORT double APPLINSSDK_VERSIONNumber;

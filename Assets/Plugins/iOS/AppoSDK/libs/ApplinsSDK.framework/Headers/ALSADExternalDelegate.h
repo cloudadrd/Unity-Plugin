@@ -15,10 +15,12 @@
  * User click the advertisement.
  */
 -(void)ALSNativeADClicked:(UIView *)nativeAd;
+
+-(void)ALSNativeWillJumpToAppStore:(UIView *)nativeAd;
 /**
  * Advertisement landing page will show.
  */
--(void)ALSNativeWillJumpToAppStore:(UIView *)nativeAd;
+-(void)ALSNativeAdDidIntoLandingPage:(UIView *)nativeAd;
 /**
  * User left the advertisement landing page.
  */
