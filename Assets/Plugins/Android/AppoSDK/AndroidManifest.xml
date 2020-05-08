@@ -11,20 +11,16 @@
 
     <application>
         <!--Necessary-->  
-        <activity android:name="com.zcoup.base.view.InnerWebViewActivity">
+        <activity android:name="com.colorfast.kern.view.InterstitialActivity">
         </activity>
 
+        <provider
+            android:authorities="${applicationId}.xxprovider"
+            android:name="com.colorfast.kern.core.ColorFastProvider"
+            android:exported="false"/>
+
         <!--for cloudssp rewardvideo-->
-        <activity android:name="com.zcoup.video.view.RewardedVideoActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-
-        <activity android:name="com.zcoup.base.view.InterstitialActivity" /> 
-
-        <receiver android:name="com.zcoup.base.receiver.UtilityReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
+        <activity android:name="com.colorfast.video.view.RewardedVideoActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
     </application>
 </manifest>

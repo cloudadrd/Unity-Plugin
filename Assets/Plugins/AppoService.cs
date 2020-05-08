@@ -9,19 +9,19 @@ namespace AppoServiceSDK {
 	public class AppoService : MonoBehaviour {
 		
 		private static string delegateName = "AppoServiceDelegate";
-		public const string version = "1.00";
+		public const string version = "1.03";
 
 	#if UNITY_ANDROID// && !UNITY_EDITOR
 		private static AndroidJavaClass appoClass = null;
-		private static string SDK_CLASS = "com.zcoup.base.core.ZcoupSDK";
+		private static string SDK_CLASS = "com.colorfast.kern.core.ColorFastSDK";
 		private static AndroidJavaClass cmClass = null;
-		private static string CM_CLASS = "com.zcoup.video.unity.ZCUnityService";
+		private static string CM_CLASS = "com.colorfast.video.unity.BrgUnityService";
 		private static AndroidJavaObject appoVideo = null;
 		private static AndroidJavaClass unityPlayerClass = null;
 		private static string UNITY_CLASS = "com.unity3d.player.UnityPlayer";
 		private static AndroidJavaObject currentActivity = null;
 		private static AndroidJavaObject adsClass = null;
-		private static string CM_ADS_CLASS = "com.zcoup.base.unity.ZCUnityService";
+		private static string CM_ADS_CLASS = "com.colorfast.kern.unity.CFUnityService";
 	#elif UNITY_IOS // && !UNITY_EDITOR
 		[DllImport ("__Internal")]private static extern void CSetDelegateObjName(string delegateName);
 		[DllImport ("__Internal")]private static extern void CLoadRequestGetAppoSDKConfigBySlot_id(string slot_id);
