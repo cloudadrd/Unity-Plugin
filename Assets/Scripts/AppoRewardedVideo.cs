@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using AppoServiceSDK;
 
 public class AppoRewardedVideo : MonoBehaviour {
-	#if UNITY_ANDROID
-	private string slot_id = "72666429";
-	#elif UNITY_IOS
-	private string slot_id = "30769964";
-	#endif
+//	#if UNITY_ANDROID
+//	private string slot_id = "72666429";
+//	#elif UNITY_IOS
+//	private string slot_id = "30769964";
+//	#endif
 	//notice: attach your UI objcet here
 	public Button loadBtn;
 	public Button playBtn;
@@ -19,51 +18,70 @@ public class AppoRewardedVideo : MonoBehaviour {
 		playBtn.onClick.AddListener (playBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
 		//Notice: load rewardvideo ad when you init UI.
-		AppoService.loadRewardedVideo(slot_id); 
+		AdTiming.Agent.setRewardedVideoListener(new AdTimingRewardedVideoListener());
 	}
 
 	//set delegate
-	void OnEnable() {
-		AppoService.rewardVideoLoadSuccess += AppoRewardVideoLoadSuccess;
-		AppoService.rewardVideoLoadingFailed += AppoRewardVideoLoadingFailed;
-		AppoService.rewardVideoDidStartPlaying += AppoRewardVideoDidStartPlaying;
-		AppoService.rewardVideoDidFinishPlaying += AppoRewardVideoDidFinishPlaying;
-		AppoService.rewardVideoDidClickRewardAd += AppoRewardVideoDidClickRewardAd;
-		AppoService.rewardVideoWillLeaveApplication += AppoRewardVideoWillLeaveApplication;
-		AppoService.rewardVideoJumpfailed += AppoRewardVideoJumpfailed;
-		AppoService.rewardVideoAdRewarded += AppoRewardVideoAdRewarded;
-		AppoService.rewardVideoClosed += AppoRewardVideoClosed;
-	}
-
-	void OnDisable(){
-		AppoService.rewardVideoLoadSuccess -= AppoRewardVideoLoadSuccess;
-		AppoService.rewardVideoLoadingFailed -= AppoRewardVideoLoadingFailed;
-		AppoService.rewardVideoDidStartPlaying -= AppoRewardVideoDidStartPlaying;
-		AppoService.rewardVideoDidFinishPlaying -= AppoRewardVideoDidFinishPlaying;
-		AppoService.rewardVideoDidClickRewardAd -= AppoRewardVideoDidClickRewardAd;
-		AppoService.rewardVideoWillLeaveApplication -= AppoRewardVideoWillLeaveApplication;
-		AppoService.rewardVideoJumpfailed -= AppoRewardVideoJumpfailed;
-		AppoService.rewardVideoAdRewarded -= AppoRewardVideoAdRewarded;
-		AppoService.rewardVideoClosed -= AppoRewardVideoClosed;
-	}
-
-	void OnDestroy(){
-		//do not forget to call release, otherwise android platform will casue memory leak.
-		AppoService.release ();
-	}
+	class AdTimingRewardedVideoListener : AdtRewardedVideoListener
+	{
+		/// Invoked when rewarded video is available.
+		public void OnRewardedVideoAvailabilityChanged(bool available)
+		{
+			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAvailabilityChanged"+available);
+		}
+		/// Sent immediately when a rewarded video starts to play. 
+		public void OnRewardedVideoAdStarted(string scene)
+		{
+			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAdStarted:" + scene);
+		}
+		/// Sent immediately when a rewarded video has been showed.
+		public void OnRewardedVideoAdShowed(string scene)
+		{
+			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAdShowed:" + scene);
+		}
+		/// Sent after a rewarded video has failed to play..
+		public void OnRewardedVideoAdShowFailed(string scene, string adTimingError)
+		{
+			Debug.LogError("UnityApp RewardedVideo OnRewardedVideoAdShowFailed:" + scene);
+		}
+		/// Sent after a rewarded video has been clicked.
+		public void OnRewardedVideoAdClicked(string scene)
+		{
+			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAdClicked:" + scene);
+		}
+		/// Sent after a rewarded video has been closed.
+		public void OnRewardedVideoAdClosed(string scene)
+		{
+			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAdClosed:" + scene);
+		}
+		/// Sent immediately when a rewarded video has been completed.
+		public void OnRewardedVideoAdEnded(string scene)
+		{
+			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAdEnded:" + scene);
+		}
+		/// Sent after a user has been granted a reward.
+		public void OnRewardedVideoAdRewarded(string scene)
+		{
+			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAdRewarded:" + scene);
+		}
+	} 
 
 	//Notice: You should call this api as soon as you can. For example, call it in Start function.(not in awake, beacause we must call AppoService.loadRequestGetAppoSDKConfigBySlot_id first in camera awake function)
 	//For convenience test, we add a button to click.
 	void loadBtnClick(){
 		//load rewardvideo ad
-		AppoService.loadRewardedVideo (slot_id);
+		if (AdTiming.Agent.isRewardedVideoReady () == true) {
+			setReady (true, null);
+		} else {
+			setReady (false, null);
+		}
 	}
 
 	void playBtnClick(){
 		//you can also use this api to check if rewearded video is ready.
-		if (AppoService.isRewardedVideoReady ()) {
-			setReady (true, null);
-			AppoService.showRewardedVideo (slot_id);
+		if (AdTiming.Agent.isRewardedVideoReady())
+		{
+			AdTiming.Agent.showRewardedVideo();
 		}
 		else
 			Debug.Log ("Appo Rewarded Video is not ready");
@@ -77,61 +95,5 @@ public class AppoRewardedVideo : MonoBehaviour {
 			statusText.color = Color.red; 
 			statusText.text = msg;
 		}
-	}
-		
-	/**
-	 * 
-	 * reward video delegate
-	 * 
-	 * 
-	 * */
-
-	//video load success. 
-	//Do not show reward video in the function, for android sdk preloads ads, may call this function several times.
-	void AppoRewardVideoLoadSuccess(){
-		Debug.Log ("U3D delegate, AppoRewardVideoLoadSuccess");
-		setReady (true, null);
-	}
-
-	//video load failure
-	void AppoRewardVideoLoadingFailed(string error){
-		setReady (false, error);
-		Debug.Log ("U3D delegate, AppoRewardVideoLoadingFailed. " + error);
-	}
-		
-	//start playing video
-	void AppoRewardVideoDidStartPlaying(){
-		Debug.Log ("U3D delegate, AppoRewardVideoDidStartPlaying");
-	}
-
-	//finish playing video
-	void AppoRewardVideoDidFinishPlaying(){
-		Debug.Log ("U3D delegate, AppoRewardVideoDidFinishPlaying");
-	}
-
-	//click ad
-	void AppoRewardVideoDidClickRewardAd(){
-		Debug.Log ("U3D delegate, AppoRewardVideoDidClickRewardAd");
-	}
-		
-	//will leave Application, only for iOS
-	void AppoRewardVideoWillLeaveApplication(){
-		Debug.Log ("U3D delegate, AppoRewardVideoWillLeaveApplication");
-	}
-		
-	//jump to AppStroe failed, only for iOS
-	void AppoRewardVideoJumpfailed(){
-		Debug.Log ("U3D delegate, AppoRewardVideoWillLeaveApplication");
-	}
-
-	//players get rewarded here
-	void AppoRewardVideoAdRewarded(string rewardVideoNameAndAmount){
-		Debug.Log ("U3D delegate, AppoRewardVideoAdRewarded, " + rewardVideoNameAndAmount);
-	}
-
-	//close video ad
-	void AppoRewardVideoClosed(){
-		Debug.Log ("U3D delegate, AppoRewardVideoClosed");
-		setReady (false, "video play end");
 	}
 }

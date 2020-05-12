@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using AppoServiceSDK;
 
 public class AppoCamera : MonoBehaviour {
 	#if UNITY_ANDROID
@@ -11,8 +10,19 @@ public class AppoCamera : MonoBehaviour {
 	private string slot_id = "30769964";
 	#endif
 
-	void Awake () {
-		AppoService.initSDK (slot_id);
-		AppoService.uploadConsent ("yes", "GDPR");
+	public void Start()
+	{
+		AdTiming.Agent.init("h0RnIKknnCa58pStdiqCWctETWkA1QL2", new AdTimingInitListener());
+	}
+	class AdTimingInitListener : AdtInitListener
+	{
+		public void onError(string message)    
+		{        
+			Debug.LogError(message);
+		}
+		public void onSuccess() 
+		{
+			Debug.Log("Init onSuccess");
+		}
 	}
 }

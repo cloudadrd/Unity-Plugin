@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using AppoServiceSDK;
 
 public class AppoInterstitial : MonoBehaviour {
 	#if UNITY_ANDROID
@@ -20,32 +19,7 @@ public class AppoInterstitial : MonoBehaviour {
 		showBtn.onClick.AddListener (showBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
 		//Notice: load Interstitial ad when you init UI.
-		AppoService.preloadInterstitialAD (slot_id); 
-	}
-	
-	//set delegate
-	void OnEnable() {
-		setupDelegates();
-	}
-
-	//set delegate
-	void setupDelegates(){
-		AppoService.interstitialLoadSuccess += AppoInterstitialLoadSuccess;
-		AppoService.interstitialLoadFailed += AppoInterstitialLoadingFailed;
-		AppoService.interstitialDidClickRewardAd += AppoInterstitialDidClickRewardAd;
-		AppoService.interstitialClose += AppoInterstitialClose;
-	}
-
-	void OnDisable(){
-		AppoService.interstitialLoadSuccess -= AppoInterstitialLoadSuccess;
-		AppoService.interstitialLoadFailed -= AppoInterstitialLoadingFailed;
-		AppoService.interstitialDidClickRewardAd -= AppoInterstitialDidClickRewardAd;
-		AppoService.interstitialClose -= AppoInterstitialClose;
-	}
-
-	void OnDestroy(){
-		//do not forget to call release, otherwise android platform will casue memory leak.
-		AppoService.release ();
+//		AdTiming.Agent.setInterstitialListener();
 	}
 
 	void setReady(bool isReady, string msg){
@@ -60,18 +34,18 @@ public class AppoInterstitial : MonoBehaviour {
 
 	void loadBtnClick(){
 		//load Interstitial ad
-		AppoService.preloadInterstitialAD (slot_id);
+		AdTiming.Agent.isInterstitialReady ();
 		Debug.Log ("Appo Interstitial loadBtnClick");
 	}
 
 	void showBtnClick(){
 		//you can also use this api to check if Interstitial is ready.
-		if (AppoService.isInterstitialAvailable ()) {
-			setReady (true, null);
-			AppoService.showInterstitial ();
-		}
-		else
-			Debug.Log ("Appo Interstitial is not ready");
+//		if (AppoService.isInterstitialAvailable ()) {
+//			setReady (true, null);
+//			AppoService.showInterstitial ();
+//		}
+//		else
+//			Debug.Log ("Appo Interstitial is not ready");
 	}
 
 

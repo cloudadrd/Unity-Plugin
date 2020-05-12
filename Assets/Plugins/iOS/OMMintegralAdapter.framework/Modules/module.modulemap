@@ -1,0 +1,6 @@
+framework module OMMintegralAdapter {
+  umbrella header "OMMintegralAdapter.h"
+
+  export *
+  module * { export * }
+}
