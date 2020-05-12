@@ -4,13 +4,44 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/OMCloudmobiAdapter.h</key>
+		<data>
+		T5Eoeg3F2s7Ubl2aquKRMa3yWiM=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		M4GB86bCb9Z8RAh+WYm/c/hxwlQ=
+		Y+lzFIl9CsLPRsuaWg4Dqnuiw4U=
+		</data>
+		<key>Modules/module.modulemap</key>
+		<data>
+		zZp+kdAURylc8DrWgaEJXrGThaw=
 		</data>
 	</dict>
 	<key>files2</key>
-	<dict/>
+	<dict>
+		<key>Headers/OMCloudmobiAdapter.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			T5Eoeg3F2s7Ubl2aquKRMa3yWiM=
+			</data>
+			<key>hash2</key>
+			<data>
+			7O80E4DRaB12sDhAptcCJxlQHe4/owyIXwpMUquDrKw=
+			</data>
+		</dict>
+		<key>Modules/module.modulemap</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zZp+kdAURylc8DrWgaEJXrGThaw=
+			</data>
+			<key>hash2</key>
+			<data>
+			tCeA2rb4DJMNoMoihLB6d0uPhf16FzBLJO/UJXwoPLE=
+			</data>
+		</dict>
+	</dict>
 	<key>rules</key>
 	<dict>
 		<key>^.*</key>

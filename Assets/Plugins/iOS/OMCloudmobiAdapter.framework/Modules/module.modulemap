@@ -1,0 +1,6 @@
+framework module OMCloudmobiAdapter {
+  umbrella header "OMCloudmobiAdapter.h"
+
+  export *
+  module * { export * }
+}
