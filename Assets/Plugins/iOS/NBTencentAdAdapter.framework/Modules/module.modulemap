@@ -1,0 +1,6 @@
+framework module NBTencentAdAdapter {
+  umbrella header "NBTencentAdAdapter.h"
+
+  export *
+  module * { export * }
+}

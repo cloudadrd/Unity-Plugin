@@ -1,0 +1,6 @@
+framework module NBTikTokAdapter {
+  umbrella header "NBTikTokAdapter.h"
+
+  export *
+  module * { export * }
+}

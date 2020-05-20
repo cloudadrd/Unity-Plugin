@@ -1,0 +1,6 @@
+framework module NBMintegralAdapter {
+  umbrella header "NBMintegralAdapter.h"
+
+  export *
+  module * { export * }
+}

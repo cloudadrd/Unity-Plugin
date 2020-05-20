@@ -1,6 +1,0 @@
-framework module OMTikTokAdapter {
-  umbrella header "OMTikTokAdapter.h"
-
-  export *
-  module * { export * }
-}

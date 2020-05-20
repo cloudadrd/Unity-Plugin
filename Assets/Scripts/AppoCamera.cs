@@ -12,9 +12,9 @@ public class AppoCamera : MonoBehaviour {
 
 	public void Start()
 	{
-		AdTiming.Agent.init("h0RnIKknnCa58pStdiqCWctETWkA1QL2", new AdTimingInitListener());
+		NBMediation.Agent.init("h0RnIKknnCa58pStdiqCWctETWkA1QL2", new AdTimingInitListener());
 	}
-	class AdTimingInitListener : AdtInitListener
+	class AdTimingInitListener : NBInitListener
 	{
 		public void onError(string message)    
 		{        

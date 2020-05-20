@@ -1,0 +1,6 @@
+framework module NBCloudmobiAdapter {
+  umbrella header "NBCloudmobiAdapter.h"
+
+  export *
+  module * { export * }
+}

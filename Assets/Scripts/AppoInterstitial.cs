@@ -34,7 +34,7 @@ public class AppoInterstitial : MonoBehaviour {
 
 	void loadBtnClick(){
 		//load Interstitial ad
-		AdTiming.Agent.isInterstitialReady ();
+		NBMediation.Agent.isInterstitialReady ();
 		Debug.Log ("Appo Interstitial loadBtnClick");
 	}
 
