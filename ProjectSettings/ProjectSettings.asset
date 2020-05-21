@@ -158,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.light.cleaner.zero
+    Android: com.yangzhu.mi
     Standalone: unity.DefaultCompany.CTServiceU3DTestCase
     Tizen: 
     iOS: com.gmedal.goldgmedelelu3d
