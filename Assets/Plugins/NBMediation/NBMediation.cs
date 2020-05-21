@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class NBMediation : NBMediationAgent
 {
@@ -23,6 +24,7 @@ public class NBMediation : NBMediationAgent
         {
             if (_instance == null)
             {
+				Debug.Log("UnityApp Agent alloc");
                 _instance = new NBMediation();
             }
             return _instance;
@@ -31,6 +33,8 @@ public class NBMediation : NBMediationAgent
 
     public void init(string appkey, NBInitListener adtimingInitListener = null)
     {
+		Debug.Log("UnityApp Agent init");
+		Debug.Log("UnityApp Agent init _platformAgent" + _platformAgent);
         _platformAgent.init(appkey, adtimingInitListener);
     }
 

@@ -19,8 +19,39 @@ public class AppoInterstitial : MonoBehaviour {
 		showBtn.onClick.AddListener (showBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
 		//Notice: load Interstitial ad when you init UI.
-//		AdTiming.Agent.setInterstitialListener();
+		NBMediation.Agent.setInterstitialListener(new InterstitialAdListener());
 	}
+
+	//set delegate
+	class InterstitialAdListener : NBInterstitialAdListener
+	{
+		/// Invoked when rewarded video is available.
+		public void OnInterstitialAdAvailabilityChanged(bool available)
+		{
+			Debug.Log("UnityApp Interstitial OnInterstitialAdAvailabilityChanged"+available);
+		}
+		/// Sent immediately when a rewarded video has been showed.
+		public void OnInterstitialAdShowed(string scene)
+		{
+			Debug.Log("UnityApp Interstitial OnInterstitialAdShowed:" + scene);
+		}
+		/// Sent after a rewarded video has failed to play..
+		public void OnInterstitialAdShowFailed(string scene, string error)
+		{
+			Debug.LogError("UnityApp Interstitial OnInterstitialAdShowFailed:" + scene);
+		}
+		/// Sent after a rewarded video has been clicked.
+		public void OnInterstitialAdClicked(string scene)
+		{
+			Debug.Log("UnityApp Interstitial OnInterstitialAdClicked:" + scene);
+		}
+		/// Sent after a rewarded video has been closed.
+		public void OnInterstitialAdClosed(string scene)
+		{
+			Debug.Log("UnityApp Interstitial OnInterstitialAdClosed:" + scene);
+		}
+
+	} 
 
 	void setReady(bool isReady, string msg){
 		if (isReady) {
@@ -28,50 +59,26 @@ public class AppoInterstitial : MonoBehaviour {
 			statusText.text = "isReadyToShow: Yes";
 		} else {
 			statusText.color = Color.red; 
-			statusText.text = msg;
+			statusText.text = "error";
 		}
 	}
 
 	void loadBtnClick(){
 		//load Interstitial ad
-		NBMediation.Agent.isInterstitialReady ();
+		if (NBMediation.Agent.isInterstitialReady () == true) {
+			setReady (true, null);
+		} else {
+			setReady (false, null);
+		}
 		Debug.Log ("Appo Interstitial loadBtnClick");
 	}
 
 	void showBtnClick(){
 		//you can also use this api to check if Interstitial is ready.
-//		if (AppoService.isInterstitialAvailable ()) {
-//			setReady (true, null);
-//			AppoService.showInterstitial ();
-//		}
-//		else
-//			Debug.Log ("Appo Interstitial is not ready");
-	}
-
-
-	/**
-	 * 
-	 * Interstitial delegate
-	 * 
-	 * 
-	 * */
-	void AppoInterstitialLoadSuccess(){
-		Debug.Log ("U3D delegate, AppoInterstitialLoadSuccess");
-		setReady (true, null);
-	}
-
-	void AppoInterstitialLoadingFailed(string error){
-		setReady (false, error);
-		Debug.Log ("U3D delegate, AppoInterstitialLoadingFailed. " + error);
-	}
-
-	//click ad, only for iOS
-	void AppoInterstitialDidClickRewardAd(){
-		Debug.Log ("U3D delegate, AppoInterstitialDidClickAd");
-	}
-
-	void AppoInterstitialClose(){
-		Debug.Log ("U3D delegate, AppoInterstitialClose");
-		setReady (false, @"isReadyToShow: NO");
+		if (NBMediation.Agent.isInterstitialReady()) {
+			NBMediation.Agent.showInterstitial ();
+		}
+		else
+			Debug.Log ("Appo Interstitial is not ready");
 	}
 }

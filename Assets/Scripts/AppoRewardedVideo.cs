@@ -18,11 +18,11 @@ public class AppoRewardedVideo : MonoBehaviour {
 		playBtn.onClick.AddListener (playBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
 		//Notice: load rewardvideo ad when you init UI.
-		NBMediation.Agent.setRewardedVideoListener(new AdTimingRewardedVideoListener());
+		NBMediation.Agent.setRewardedVideoListener(new RewardedVideoListener());
 	}
 
 	//set delegate
-	class AdTimingRewardedVideoListener : NBRewardedVideoListener
+	class RewardedVideoListener : NBRewardedVideoListener
 	{
 		/// Invoked when rewarded video is available.
 		public void OnRewardedVideoAvailabilityChanged(bool available)
@@ -79,12 +79,13 @@ public class AppoRewardedVideo : MonoBehaviour {
 
 	void playBtnClick(){
 		//you can also use this api to check if rewearded video is ready.
+		Debug.Log ("UnityApp Rewarded Video playBtnClick");
 		if (NBMediation.Agent.isRewardedVideoReady())
 		{
 			NBMediation.Agent.showRewardedVideo();
 		}
 		else
-			Debug.Log ("Appo Rewarded Video is not ready");
+			Debug.Log ("UnityApp Rewarded Video is not ready");
 	}
 
 	void setReady(bool isReady, string msg){
@@ -93,7 +94,7 @@ public class AppoRewardedVideo : MonoBehaviour {
 			statusText.text = "isReadyToPlay: Yes";
 		} else {
 			statusText.color = Color.red; 
-			statusText.text = msg;
+			statusText.text = "error";
 		}
 	}
 }

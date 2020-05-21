@@ -3,7 +3,7 @@
 using System;
 using UnityEngine;
 
-public class AndroidAgent : AdTimingAgent
+public class AndroidAgent : NBMediationAgent
 {
 
     AndroidJavaClass mAdTiming = null;
@@ -11,33 +11,34 @@ public class AndroidAgent : AdTimingAgent
     public AndroidAgent() {
         try
         {
-            mAdTiming = new AndroidJavaClass("com.adtiming.mediationsdk.api.unity.AdTiming");
+			mAdTiming = new AndroidJavaClass("com.nbmediation.sdk.api.unity.NmSdk");
         }
         catch (Exception e) {
-            AdtimingUtils.printLogE("com.aiming.mdt.api.unity.AdTiming not found" + e.Message);
+			NBMediationUtils.printLogE("com.nbmediation.sdk.api.unity.NmSdk not found" + e.Message);
+			Debug.Log("com.nbmediation.sdk.api.unity.NmSdk not found");
         }
     }
 
     public void debug(bool isDebug)
     {
-        AdtimingUtils.isDebug = isDebug;
+        NBMediationUtils.isDebug = isDebug;
         if(mAdTiming != null)
         {
             mAdTiming.CallStatic("Debug", isDebug);
         }
     }
 
-    public void init(string appkey, AdtInitListener adtimingInitListener = null)
+    public void init(string appkey, NBInitListener adtimingInitListener = null)
     {
         if (mAdTiming != null)
         {
             if (adtimingInitListener != null)
             {
-                mAdTiming.CallStatic("init", AdtimingUtils.currentActivity(), appkey, new AdtimingInitCallBack(adtimingInitListener));
+                mAdTiming.CallStatic("init", NBMediationUtils.currentActivity(), appkey, new AdtimingInitCallBack(adtimingInitListener));
             }
             else
             {
-                mAdTiming.CallStatic("init", AdtimingUtils.currentActivity(), appkey);
+                mAdTiming.CallStatic("init", NBMediationUtils.currentActivity(), appkey);
             }
         }
     }
@@ -91,7 +92,7 @@ public class AndroidAgent : AdTimingAgent
         return isReady;
     }
 
-    public void setInterstitialListener(AdtInterstitialAdListener interstitialAdListener)
+    public void setInterstitialListener(NBInterstitialAdListener interstitialAdListener)
     {
         if (mAdTiming != null)
         {
@@ -99,7 +100,7 @@ public class AndroidAgent : AdTimingAgent
         }
     }
 
-    public void setRewardedVideoListener(AdtRewardedVideoListener rewardedVideoListener)
+    public void setRewardedVideoListener(NBRewardedVideoListener rewardedVideoListener)
     {
         if (mAdTiming != null)
         {
@@ -129,7 +130,8 @@ public class AndroidAgent : AdTimingAgent
     {
         if (mAdTiming != null)
         {
-            mAdTiming.CallStatic("showRewardedVideo");
+			Debug.Log ("UnityApp Rewarded Video showRewardedVideo 2");
+            mAdTiming.CallStatic("showRewardedVideo", "");
         }
     }
 
@@ -150,9 +152,9 @@ public class AndroidAgent : AdTimingAgent
 
     private class AdtimingInitCallBack : AndroidJavaProxy
     {
-        private readonly AdtInitListener adtimingInitListener;
+        private readonly NBInitListener adtimingInitListener;
 
-        public AdtimingInitCallBack(AdtInitListener listener) : base("com.adtiming.mediationsdk.InitCallback")
+		public AdtimingInitCallBack(NBInitListener listener) : base("com.nbmediation.sdk.InitCallback")
         {
             this.adtimingInitListener = listener;
         }
@@ -161,7 +163,7 @@ public class AndroidAgent : AdTimingAgent
         {
             if (adtimingInitListener != null)
             {
-                AdtimingUtils.printLogI("Init onSuccess");
+                NBMediationUtils.printLogI("Init onSuccess");
                 adtimingInitListener.onSuccess();
             }
         }
@@ -170,7 +172,7 @@ public class AndroidAgent : AdTimingAgent
         {
             if (adtimingInitListener != null)
             {
-                AdtimingUtils.printLogE("Init onError:" + message);
+                NBMediationUtils.printLogE("Init onError:" + message);
                 adtimingInitListener.onError(message);
             }
         }
@@ -178,9 +180,9 @@ public class AndroidAgent : AdTimingAgent
 
     private class AdtimingInterstitialCallBack : AndroidJavaProxy
     {
-        private readonly AdtInterstitialAdListener adtimingInterstitialListener;
+        private readonly NBInterstitialAdListener adtimingInterstitialListener;
 
-        public AdtimingInterstitialCallBack(AdtInterstitialAdListener listener) : base("com.adtiming.mediationsdk.api.unity.InterstitialListener")
+		public AdtimingInterstitialCallBack(NBInterstitialAdListener listener) : base("com.nbmediation.sdk.api.unity.InterstitialListener")
         {
             this.adtimingInterstitialListener = listener;
         }
@@ -210,9 +212,9 @@ public class AndroidAgent : AdTimingAgent
 
     private class AdtimingRewardedVideoCallBack : AndroidJavaProxy
     {
-        private readonly AdtRewardedVideoListener adtimingRewardedVideoListener;
+        private readonly NBRewardedVideoListener adtimingRewardedVideoListener;
 
-        public AdtimingRewardedVideoCallBack(AdtRewardedVideoListener listener) : base("com.adtiming.mediationsdk.api.unity.VideoListener")
+		public AdtimingRewardedVideoCallBack(NBRewardedVideoListener listener) : base("com.nbmediation.sdk.api.unity.VideoListener")
         {
             this.adtimingRewardedVideoListener = listener;
         }
