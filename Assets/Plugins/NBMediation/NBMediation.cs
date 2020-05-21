@@ -33,8 +33,6 @@ public class NBMediation : NBMediationAgent
 
     public void init(string appkey, NBInitListener adtimingInitListener = null)
     {
-		Debug.Log("UnityApp Agent init");
-		Debug.Log("UnityApp Agent init _platformAgent" + _platformAgent);
         _platformAgent.init(appkey, adtimingInitListener);
     }
 

@@ -130,7 +130,6 @@ public class AndroidAgent : NBMediationAgent
     {
         if (mAdTiming != null)
         {
-			Debug.Log ("UnityApp Rewarded Video showRewardedVideo 2");
             mAdTiming.CallStatic("showRewardedVideo", "");
         }
     }

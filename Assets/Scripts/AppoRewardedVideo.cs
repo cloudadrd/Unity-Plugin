@@ -79,7 +79,6 @@ public class AppoRewardedVideo : MonoBehaviour {
 
 	void playBtnClick(){
 		//you can also use this api to check if rewearded video is ready.
-		Debug.Log ("UnityApp Rewarded Video playBtnClick");
 		if (NBMediation.Agent.isRewardedVideoReady())
 		{
 			NBMediation.Agent.showRewardedVideo();
