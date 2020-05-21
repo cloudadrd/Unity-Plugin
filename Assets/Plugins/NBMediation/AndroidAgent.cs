@@ -116,7 +116,7 @@ public class AndroidAgent : NBMediationAgent
     {
         if (mAdTiming != null)
         {
-            mAdTiming.CallStatic("showInterstitial");
+            mAdTiming.CallStatic("showInterstitial", "");
         }
     }
 
