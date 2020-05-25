@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class AndroidAgent : NBMediationAgent
 {
-
     AndroidJavaClass mAdTiming = null;
+	private static AndroidJavaObject currentActivity = null;
+	private static AndroidJavaClass unityPlayerClass = null;
+	private static string UNITY_CLASS = "com.unity3d.player.UnityPlayer";
 
     public AndroidAgent() {
         try
@@ -151,7 +153,11 @@ public class AndroidAgent : NBMediationAgent
 
 	public void loadBanner(string slotid) {
 		if (mAdTiming != null) {
-			mAdTiming.CallStatic("loadBanner", slotid);
+			if(unityPlayerClass == null)
+				unityPlayerClass = new AndroidJavaClass(UNITY_CLASS);
+			
+			currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+			mAdTiming.CallStatic("loadBanner", currentActivity, slotid);
 		}
 	}
 
@@ -166,13 +172,21 @@ public class AndroidAgent : NBMediationAgent
 
 	public void showBanner(string slotid) {
 		if (mAdTiming != null) {
-			mAdTiming.CallStatic("showBanner", slotid);
+			if(unityPlayerClass == null)
+				unityPlayerClass = new AndroidJavaClass(UNITY_CLASS);
+
+			currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+			mAdTiming.CallStatic("showBanner", currentActivity, slotid);
 		}
 	}
 
 	public void hideBanner(string slotid, bool destory = false) {
 		if (mAdTiming != null) {
-			mAdTiming.CallStatic("hideBanner", slotid, destory);
+			if(unityPlayerClass == null)
+				unityPlayerClass = new AndroidJavaClass(UNITY_CLASS);
+
+			currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+			mAdTiming.CallStatic("hideBanner", currentActivity, slotid, destory);
 		}
 	}
 

@@ -100,5 +100,21 @@ public class NBMediation : NBMediationAgent
     {
         _platformAgent.debug(isDebug);
     }
+
+	public void loadBanner(string slotid){
+		_platformAgent.loadBanner (slotid);
+	}
+
+	public bool isBannerReady(string slotid){
+		return _platformAgent.isBannerReady (slotid);
+	}
+
+	public void showBanner(string slotid){
+		_platformAgent.showBanner (slotid);
+	}
+
+	public void hideBanner(string slotid, bool isDestory){
+		_platformAgent.hideBanner (slotid, isDestory);
+	}
     #endregion
 }

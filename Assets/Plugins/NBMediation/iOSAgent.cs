@@ -1,4 +1,4 @@
-﻿//#if UNITY_IPHONE || UNITY_IOS
+﻿#if UNITY_IPHONE || UNITY_IOS
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -410,4 +410,4 @@ public class iOSAgent : NBMediationAgent
     #endregion
 }
 
-//#endif
+#endif

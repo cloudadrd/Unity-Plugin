@@ -19,4 +19,9 @@ public interface NBMediationAgent{
     void showInterstitial();
     void showInterstitial(string scene);
     bool isInterstitialReady();
+	//******************* Interstitial API *******************//
+	bool isBannerReady(string slotid);
+	void loadBanner (string slotid);
+	void showBanner (string slotid);
+	void hideBanner(string slotid, bool isDestory);
 }
