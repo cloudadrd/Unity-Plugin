@@ -1,0 +1,6 @@
+framework module ApplinsSDK {
+  umbrella header "ApplinsSDK.h"
+
+  export *
+  module * { export * }
+}

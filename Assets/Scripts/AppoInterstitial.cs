@@ -4,11 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AppoInterstitial : MonoBehaviour {
-	#if UNITY_ANDROID
-	private string slot_id = "11546588";
-	#elif UNITY_IOS
-	private string slot_id = "53479848";
-	#endif
+
 	//notice: attach your UI objcet here
 	public Button loadBtn;
 	public Button showBtn;
@@ -70,7 +66,7 @@ public class AppoInterstitial : MonoBehaviour {
 		} else {
 			setReady (false, null);
 		}
-		Debug.Log ("Appo Interstitial loadBtnClick");
+		Debug.Log ("UnityApp Interstitial loadBtnClick");
 	}
 
 	void showBtnClick(){
@@ -79,6 +75,6 @@ public class AppoInterstitial : MonoBehaviour {
 			NBMediation.Agent.showInterstitial ();
 		}
 		else
-			Debug.Log ("Appo Interstitial is not ready");
+			Debug.Log ("UnityApp Interstitial is not ready");
 	}
 }

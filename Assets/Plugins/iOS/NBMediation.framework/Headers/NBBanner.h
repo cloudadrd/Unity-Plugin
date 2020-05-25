@@ -12,20 +12,20 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// Banner Ad Size
-typedef NS_ENUM(NSInteger, OMBannerType) {
-    OMBannerTypeDefault = 0,        ///ad size: 320 x 50
-    OMBannerTypeMediumRectangle = 1,///ad size: 300 x 250
-    OMBannerTypeLeaderboard = 2     ///ad size: 728x90
+typedef NS_ENUM(NSInteger, NBBannerType) {
+    NBBannerTypeDefault = 0,        ///ad size: 320 x 50
+    NBBannerTypeMediumRectangle = 1,///ad size: 300 x 250
+    NBBannerTypeLeaderboard = 2     ///ad size: 728x90
 };
 
 /// Banner Ad layout attribute
-typedef NS_ENUM(NSInteger, OMBannerLayoutAttribute) {
-    OMBannerLayoutAttributeTop = 0,
-    OMBannerLayoutAttributeLeft = 1,
-    OMBannerLayoutAttributeBottom = 2,
-    OMBannerLayoutAttributeRight = 3,
-    OMBannerLayoutAttributeHorizontally = 4,
-    OMBannerLayoutAttributeVertically = 5
+typedef NS_ENUM(NSInteger, NBBannerLayoutAttribute) {
+    NBBannerLayoutAttributeTop = 0,
+    NBBannerLayoutAttributeLeft = 1,
+    NBBannerLayoutAttributeBottom = 2,
+    NBBannerLayoutAttributeRight = 3,
+    NBBannerLayoutAttributeHorizontally = 4,
+    NBBannerLayoutAttributeVertically = 5
 };
 
 /// A customized UIView to represent a OpenMediation ad (banner ad).
@@ -43,10 +43,10 @@ typedef NS_ENUM(NSInteger, OMBannerLayoutAttribute) {
 /// This is a method to initialize an NBBanner.
 /// type: The size of the ad. Default is OMBannerTypeDefault.
 /// placementID: Typed access to the id of the ad placement.
-- (instancetype)initWithBannerType:(OMBannerType)type placementID:(NSString *)placementID;
+- (instancetype)initWithBannerType:(NBBannerType)type placementID:(NSString *)placementID;
 
 /// set the banner position.
-- (void)addLayoutAttribute:(OMBannerLayoutAttribute)attribute constant:(CGFloat)constant;
+- (void)addLayoutAttribute:(NBBannerLayoutAttribute)attribute constant:(CGFloat)constant;
 
 /// Begins loading the NBBanner content. And to show with default controller([UIApplication sharedApplication].keyWindow.rootViewController) when load success.
 - (void)loadAndShow;

@@ -1,4 +1,4 @@
-﻿#if UNITY_IPHONE || UNITY_IOS
+﻿//#if UNITY_IPHONE || UNITY_IOS
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -72,6 +72,19 @@ public class iOSAgent : NBMediationAgent
     private static NBInterstitialAdListener _insterstitialListener;
     private static NBRewardedVideoListener _rewardedVideoListener;
 
+	//******************* Banner API *******************//
+
+	[DllImport("__Internal")]
+	private static extern bool adtIsBannerReady(string slotid);
+
+	[DllImport("__Internal")]
+	private static extern void adtLoadBanner(string slotid);
+
+	[DllImport("__Internal")]
+	private static extern void adtShowBanner(string slotid);
+
+	[DllImport("__Internal")]
+	private static extern void adtHideBanner(string slotid, bool isDestory);
 
     #region AdTimingAgent implementation
 
@@ -364,17 +377,37 @@ public class iOSAgent : NBMediationAgent
 
     }
 
-    //public void loadRewardedVideo()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+	public bool isBannerReady(string slotid)
+	{
+		bool isReady = false;
+		NBMediationUtils.printLogI("isBannerReady");
+		isReady = adtIsBannerReady(slotid);
+		return isReady;
+	}
 
-    //public void loadInterstitial()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+	public void loadBanner(string slotid)
+	{
+		NBMediationUtils.printLogI("loadBanner");
+		adtLoadBanner (slotid);
+	}
+
+	public void showBanner(string slotid)
+	{
+		NBMediationUtils.printLogI("showBanner");
+		if (adtIsBannerReady(slotid))
+		{
+			adtShowBanner (slotid);
+		}
+	}
+
+	public void hideBanner(string slotid, bool isDestory)
+	{
+		NBMediationUtils.printLogI("hideBanner");
+		adtHideBanner (slotid, isDestory);
+	}
+
 
     #endregion
 }
 
-#endif
+//#endif

@@ -5,7 +5,7 @@
 //  Created by ylm on 2019/7/31.
 //
 
-#import "ADTUnityBridge.h"
+#import "NBUnityBridge.h"
 
 typedef void (*completionHandler)(const char* error);
 
@@ -132,6 +132,27 @@ void adtShowRewardedVideoWithExtraParams(const char* scene, const char* extraPar
 
 bool adtRewardedVideoIsReady(){
     return [[ADTUnityBridge sharedInstance] videoIsReady];
+}
+
+//banner
+void adtLoadBanner(const char* slotid){
+    NSString* adtSlotId = [NSString stringWithUTF8String:slotid];
+    [[ADTUnityBridge sharedInstance] loadBanner:adtSlotId];
+}
+
+bool adtIsBannerReady(const char* slotid){
+    NSString* adtSlotId = [NSString stringWithUTF8String:slotid];
+    return [[ADTUnityBridge sharedInstance] isBannerReady:adtSlotId];
+}
+
+void adtShowBanner(const char* slotid){
+    NSString* adtSlotId = [NSString stringWithUTF8String:slotid];
+    [[ADTUnityBridge sharedInstance] showBanner:adtSlotId];
+}
+
+void adtHideBanner(const char* slotid, BOOL isDestory){
+    NSString* adtSlotId = [NSString stringWithUTF8String:slotid];
+    [[ADTUnityBridge sharedInstance] showBanner:adtSlotId isDestory:isDestory];
 }
 
 
@@ -282,6 +303,24 @@ static ADTUnityBridge * _instance = nil;
     if(_videoBlock){
         _videoBlock(ADTForUnityAdStateShowFail,error.code,scene.sceneName);
     }
+}
+
+#pragma mark -- banner
+
+- (BOOL)isBannerReady:(NSString *)slotid{
+    return [[NBBannerU3DHelper sharedInstance] isBannerReady:slotid];
+}
+
+- (void)loadBanner:(NSString *)slotid{
+    [[NBBannerU3DHelper sharedInstance] loadBanner:slotid];
+}
+
+- (void)showBanner:(NSString *)slotid{
+    [[NBBannerU3DHelper sharedInstance] showBanner:slotid];
+}
+
+- (void)hideBanner:(NSString *)slotid isDestory:(BOOL) isDestory{
+    [[NBBannerU3DHelper sharedInstance] hideBanner:slotid isDestory:isDestory];
 }
 
 @end

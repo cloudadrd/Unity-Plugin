@@ -149,6 +149,34 @@ public class AndroidAgent : NBMediationAgent
         }
     }
 
+	public void loadBanner(string slotid) {
+		if (mAdTiming != null) {
+			mAdTiming.CallStatic("loadBanner", slotid);
+		}
+	}
+
+	public bool isBannerReady(string slotid) {
+		bool isReady = false;
+		if (mAdTiming != null)
+		{
+			isReady = mAdTiming.CallStatic<bool>("isBannerReady");
+		}
+		return isReady;
+	}
+
+	public void showBanner(string slotid) {
+		if (mAdTiming != null) {
+			mAdTiming.CallStatic("showBanner", slotid);
+		}
+	}
+
+	public void hideBanner(string slotid, bool destory = false) {
+		if (mAdTiming != null) {
+			mAdTiming.CallStatic("hideBanner", slotid, destory);
+		}
+	}
+
+
     private class AdtimingInitCallBack : AndroidJavaProxy
     {
         private readonly NBInitListener adtimingInitListener;

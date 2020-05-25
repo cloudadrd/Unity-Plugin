@@ -49,6 +49,14 @@ typedef void (^videoCallbackBlock)(ADTForUnityAdState state, NSInteger code, NSS
 
 - (void)showVideoWithExtraParams:(NSString *)scene extraParams:(NSString *)extraParams;
 
+//banner
+- (BOOL)isBannerReady:(NSString *)slotid;
+
+- (void)loadBanner:(NSString *)slotid;
+
+- (void)showBanner:(NSString *)slotid;
+
+- (void)hideBanner:(NSString *)slotid isDestory:(BOOL) isDestory;
 @end
 
 
