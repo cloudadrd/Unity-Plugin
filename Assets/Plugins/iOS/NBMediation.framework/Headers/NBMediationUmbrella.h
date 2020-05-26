@@ -6,7 +6,7 @@
 #import <NBMediation/NBMediation.h>
 
 #import <NBMediation/NBBanner.h>
-
+#import <NBMediation/NBBannerU3DHelper.h>
 #import <NBMediation/NBInterstitial.h>
 
 #import <NBMediation/NBNative.h>

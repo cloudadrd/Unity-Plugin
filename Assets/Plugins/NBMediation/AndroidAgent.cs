@@ -165,7 +165,7 @@ public class AndroidAgent : NBMediationAgent
 		bool isReady = false;
 		if (mAdTiming != null)
 		{
-			isReady = mAdTiming.CallStatic<bool>("isBannerReady");
+			isReady = mAdTiming.CallStatic<bool>("isBannerReady", slotid);
 		}
 		return isReady;
 	}

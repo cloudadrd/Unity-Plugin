@@ -11,6 +11,7 @@
 #import <NBMediation/NBInterstitialDelegate.h>
 #import <NBMediation/NBRewardedVideo.h>
 #import <NBMediation/NBRewardedVideoDelegate.h>
+#import <NBMediation/NBBannerU3DHelper.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

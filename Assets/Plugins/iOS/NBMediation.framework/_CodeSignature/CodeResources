@@ -14,11 +14,15 @@
 		</data>
 		<key>Headers/NBBanner.h</key>
 		<data>
-		2uxw44h/UZ01vHffbLxQheKQKn4=
+		9XiLs5ebr75F6IubQwLNLAxQKJI=
 		</data>
 		<key>Headers/NBBannerDelegate.h</key>
 		<data>
 		JeG5KP9ucWQYj4OJPIWFIfr+YY0=
+		</data>
+		<key>Headers/NBBannerU3DHelper.h</key>
+		<data>
+		SNqGPXlaBxktiUppgOdt/6yx29A=
 		</data>
 		<key>Headers/NBInterstitial.h</key>
 		<data>
@@ -38,7 +42,7 @@
 		</data>
 		<key>Headers/NBMediationUmbrella.h</key>
 		<data>
-		Cau6s5pwya4d/impCh464NEYvzo=
+		Bku+qP0C/b5j4Hh3j6aajpl0q8w=
 		</data>
 		<key>Headers/NBNative.h</key>
 		<data>
@@ -113,11 +117,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2uxw44h/UZ01vHffbLxQheKQKn4=
+			9XiLs5ebr75F6IubQwLNLAxQKJI=
 			</data>
 			<key>hash2</key>
 			<data>
-			g+NWRUKKhUMvNiA78KRCUcPgeRoREMojc7nvQmxfNzg=
+			dyvWF40Sz09NTlSraGDYBhTWSiuYAkZkgFDClgWpjhY=
 			</data>
 		</dict>
 		<key>Headers/NBBannerDelegate.h</key>
@@ -129,6 +133,17 @@
 			<key>hash2</key>
 			<data>
 			hMJRPFyeyyMldTEIYNnrH0x2rVwa2A3JdPKkb88cV2E=
+			</data>
+		</dict>
+		<key>Headers/NBBannerU3DHelper.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SNqGPXlaBxktiUppgOdt/6yx29A=
+			</data>
+			<key>hash2</key>
+			<data>
+			85FSo/SYMkQ9xnBJ7+KHzQjflkFRiCgR8ukGMoXZVPs=
 			</data>
 		</dict>
 		<key>Headers/NBInterstitial.h</key>
@@ -179,11 +194,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Cau6s5pwya4d/impCh464NEYvzo=
+			Bku+qP0C/b5j4Hh3j6aajpl0q8w=
 			</data>
 			<key>hash2</key>
 			<data>
-			24RF+Daf67Oqtb+PpuaSj93nKh34mKOXiVEN62VHVXg=
+			p+2DfmPWuPlZW1ko/3KFpS/P3heaXIaAPTNzYoSYm+c=
 			</data>
 		</dict>
 		<key>Headers/NBNative.h</key>

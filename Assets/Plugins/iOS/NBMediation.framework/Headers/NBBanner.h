@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, NBBannerLayoutAttribute) {
 
 /// A customized UIView to represent a OpenMediation ad (banner ad).
 @interface NBBanner : UIView
-
+@property(nonatomic, assign) BOOL didLoad; //Only for U3D used.
 @property(nonatomic, readonly, nullable) NSString *placementID;
 
 /// the delegate

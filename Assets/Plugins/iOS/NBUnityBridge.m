@@ -152,7 +152,7 @@ void adtShowBanner(const char* slotid){
 
 void adtHideBanner(const char* slotid, BOOL isDestory){
     NSString* adtSlotId = [NSString stringWithUTF8String:slotid];
-    [[ADTUnityBridge sharedInstance] showBanner:adtSlotId isDestory:isDestory];
+    [[ADTUnityBridge sharedInstance] hideBanner:adtSlotId isDestory:isDestory];
 }
 
 
@@ -308,19 +308,19 @@ static ADTUnityBridge * _instance = nil;
 #pragma mark -- banner
 
 - (BOOL)isBannerReady:(NSString *)slotid{
-    return [[NBBannerU3DHelper sharedInstance] isBannerReady:slotid];
+    return [[NBBannerU3DHelper shareHelper] bannerIsReaday:slotid];
 }
 
 - (void)loadBanner:(NSString *)slotid{
-    [[NBBannerU3DHelper sharedInstance] loadBanner:slotid];
+    [[NBBannerU3DHelper shareHelper] loadBannerWithPlacementID:slotid];
 }
 
 - (void)showBanner:(NSString *)slotid{
-    [[NBBannerU3DHelper sharedInstance] showBanner:slotid];
+    [[NBBannerU3DHelper shareHelper] bannerShow:slotid];
 }
 
 - (void)hideBanner:(NSString *)slotid isDestory:(BOOL) isDestory{
-    [[NBBannerU3DHelper sharedInstance] hideBanner:slotid isDestory:isDestory];
+    [[NBBannerU3DHelper shareHelper] bannerHidden:slotid destroyIt:isDestory];
 }
 
 @end
