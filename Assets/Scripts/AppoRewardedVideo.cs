@@ -8,12 +8,13 @@ public class AppoRewardedVideo : MonoBehaviour {
 	public Button loadBtn;
 	public Button playBtn;
 	public Text statusText;
-
+	
 	void Start () {
 		playBtn.onClick.AddListener (playBtnClick);
 		loadBtn.onClick.AddListener (loadBtnClick);
 		//Notice: load rewardvideo ad when you init UI.
-		NBMediation.Agent.setRewardedVideoListener(new RewardedVideoListener());
+		NBMediation.Agent.setRewardedVideoListener("246", new RewardedVideoListener());
+		NBMediation.Agent.loadRewardedVideo("246");
 	}
 
 	//set delegate
@@ -23,6 +24,7 @@ public class AppoRewardedVideo : MonoBehaviour {
 		public void OnRewardedVideoAvailabilityChanged(bool available)
 		{
 			Debug.Log("UnityApp RewardedVideo OnRewardedVideoAvailabilityChanged"+available);
+
 		}
 		/// Sent immediately when a rewarded video starts to play. 
 		public void OnRewardedVideoAdStarted(string scene)
@@ -63,20 +65,22 @@ public class AppoRewardedVideo : MonoBehaviour {
 
 	//Notice: You should call this api as soon as you can. For example, call it in Start function.(not in awake, beacause we must call AppoService.loadRequestGetAppoSDKConfigBySlot_id first in camera awake function)
 	//For convenience test, we add a button to click.
-	void loadBtnClick(){
+	void loadBtnClick() { 
 		//load rewardvideo ad
-		if (NBMediation.Agent.isRewardedVideoReady () == true) {
+		if (NBMediation.Agent.isRewardedVideoReady ("246") == true) {
 			setReady (true, null);
 		} else {
 			setReady (false, null);
 		}
 	}
 
+	
+
 	void playBtnClick(){
 		//you can also use this api to check if rewearded video is ready.
-		if (NBMediation.Agent.isRewardedVideoReady())
+		if (NBMediation.Agent.isRewardedVideoReady("246"))
 		{
-			NBMediation.Agent.showRewardedVideo();
+			NBMediation.Agent.showRewardedVideo("246");
 		}
 		else
 			Debug.Log ("UnityApp Rewarded Video is not ready");

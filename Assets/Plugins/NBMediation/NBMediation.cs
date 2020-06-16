@@ -61,11 +61,6 @@ public class NBMediation : NBMediationAgent
         _platformAgent.showRewardedVideo(scene);
     }
 
-    public void showRewardedVideo(string scene, string extraParams)
-    {
-        _platformAgent.showRewardedVideo(scene, extraParams);
-    }
-
     public bool isRewardedVideoReady()
     {
         return _platformAgent.isRewardedVideoReady();
@@ -116,5 +111,46 @@ public class NBMediation : NBMediationAgent
 	public void hideBanner(string slotid, bool isDestory){
 		_platformAgent.hideBanner (slotid, isDestory);
 	}
+
+    //rewardedvide interstitial指定slot加载
+    public void loadRewardedVideo(String placementId)
+    {
+        _platformAgent.loadRewardedVideo(placementId);
+    }
+
+    public void setRewardedVideoListener(string placementId, NBRewardedVideoListener rewardedVideoListener)
+    {
+        _platformAgent.setRewardedVideoListener(placementId, rewardedVideoListener);
+    }
+
+    public void showRewardedVideo(string placementId, string scene)
+    {
+        _platformAgent.showRewardedVideo(placementId, scene);
+    }
+
+    public bool isRewardedVideoReady(string placementId)
+    {
+        return _platformAgent.isRewardedVideoReady(placementId);
+    }
+
+    public void loadInterstitial(string placementId)
+    {
+        _platformAgent.loadInterstitial(placementId);
+    }
+
+    public void setInterstitialListener(string placementId, NBInterstitialAdListener interstitialAdListener)
+    {
+        _platformAgent.setInterstitialListener(placementId, interstitialAdListener);
+    }
+
+    public void showInterstitial(string placementId, string scene)
+    {
+        _platformAgent.showInterstitial(placementId, scene);
+    }
+
+    public bool isInterstitialReady(string placementId)
+    {
+        return _platformAgent.isInterstitialReady(placementId);
+    }
     #endregion
 }

@@ -142,16 +142,80 @@ public class AndroidAgent : NBMediationAgent
         }
     }
 
-    public void showRewardedVideo(string scene, string extraParams)
+    //RewaredVideo使用placementid自定义加载
+    public void loadRewardedVideo(string placementId)
     {
         if (mAdTiming != null)
         {
-            mAdTiming.CallStatic("setExtId", scene, extraParams);
-            mAdTiming.CallStatic("showRewardedVideo", scene);
+            mAdTiming.CallStatic("loadRewardedVideo", placementId);
         }
     }
 
-	public void loadBanner(string slotid) {
+    public void setRewardedVideoListener(string placementId, NBRewardedVideoListener rewardedVideoListener)
+    {
+        if (mAdTiming != null)
+        {
+            mAdTiming.CallStatic("setRewardedVideoListener", placementId, new AdtimingRewardedVideoCallBack(rewardedVideoListener));
+        }
+    }
+
+    public bool isRewardedVideoReady(string placementId)
+    {
+        bool isReady = false;
+        if (mAdTiming != null)
+        {
+            isReady = mAdTiming.CallStatic<bool>("isRewardedVideoReady", placementId);
+        }
+        return isReady;
+    }
+
+    public void showRewardedVideo(string placementId, string scene)
+    {
+        if (mAdTiming != null)
+        {
+            mAdTiming.CallStatic("showRewardedVideo", placementId, scene);
+        }
+    }
+
+    //Interstitial使用placementid自定义加载
+    public void loadInterstitial(string placementId)
+    {
+        if (mAdTiming != null)
+        {
+            mAdTiming.CallStatic("loadInterstitial", placementId);
+        }
+    }
+
+    public void setInterstitialListener(string placementId, NBInterstitialAdListener interstitialAdListener)
+    {
+        if (mAdTiming != null)
+        {
+            mAdTiming.CallStatic("setInterstitialListener", placementId, new AdtimingInterstitialCallBack(interstitialAdListener));
+        }
+    }
+
+    public bool isInterstitialReady(string placementId)
+    {
+        bool isReady = false;
+        if (mAdTiming != null)
+        {
+            isReady = mAdTiming.CallStatic<bool>("isInterstitialReady", placementId);
+        }
+        return isReady;
+    }
+
+    public void showInterstitial(string placementId, string scene)
+    {
+        if (mAdTiming != null)
+        {
+            mAdTiming.CallStatic("showInterstitial", placementId, scene);
+        }
+    }
+
+
+    //banner接口
+
+    public void loadBanner(string slotid) {
 		if (mAdTiming != null) {
 			if(unityPlayerClass == null)
 				unityPlayerClass = new AndroidJavaClass(UNITY_CLASS);
