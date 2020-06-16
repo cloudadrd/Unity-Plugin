@@ -12,11 +12,15 @@ buildscript {
 
 allprojects {
    repositories {
+      mavenCentral()
       google()
       jcenter()
       flatDir {
         dirs 'libs'
       }
+
+      // mediation 仓库
+      maven { url "http://maven.mediamvp.cn/repository/maven-releases/" }
    }
 }
 
@@ -26,6 +30,20 @@ dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
   implementation 'com.android.support:multidex:1.0.3'
   implementation 'com.android.support:support-v4:28.0.0'
+  implementation 'com.android.support:recyclerview-v7:28.0.0'
+  implementation 'com.zyt:mediation-only:1.1.1'
+  implementation 'com.android.support:cardview-v7:27.1.1'
+
+  implementation 'com.mintegral.msdk:videojs:10.2.41'
+  implementation 'com.mintegral.msdk:mtgjscommon:10.2.41'
+  implementation 'com.mintegral.msdk:playercommon:10.2.41'
+  implementation 'com.mintegral.msdk:reward:10.2.41'
+  implementation 'com.mintegral.msdk:videocommon:10.2.41'
+  implementation 'com.mintegral.msdk:optimizedata:10.2.41'
+  implementation 'com.mintegral.msdk:common:10.2.41'
+  implementation 'com.mintegral.msdk:alphab:10.2.41'
+  implementation 'com.mintegral.msdk:mtgdownloads:10.2.41'
+
 **DEPS**}
 
 android {
